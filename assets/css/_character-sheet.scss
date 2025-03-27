@@ -23,25 +23,15 @@
     /////////////////////////////////////////////////////////////////////////////
 
     .sheet-header {
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 165px;
-        flex: 0 0 165px;
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: row;
         flex-direction: row;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        -webkit-box-pack: start;
-        -ms-flex-pack: start;
         justify-content: flex-start;
         margin-bottom: 10px;
-        gap: 20px;
+        min-height: 165px;
+        gap: 10px;
         overflow: hidden;
         align-items: flex-start;
+        flex: initial;
 
         /////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////////////////////////////////////////////////
@@ -66,6 +56,8 @@
                     background-color: transparent;
                     color: var(--dark);
                     input {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
                         width: 100%;
                         height: 100%;
                         margin: 0;
@@ -83,6 +75,8 @@
                     line-height: 14px;
                     height: 14px;
                     input {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
                         border: 0px;
                         background-color: var(--white);
                         color: var(--grey);
@@ -101,8 +95,8 @@
 
             .eb-main-stat-wrapper{
                 display: flex;
-                flex-direction: row;
-                gap: 5px;
+                flex-direction: column;
+                gap: 10px;
 
                 .eb-main-stat{
                     border: 1px solid var(--lightgrey);
@@ -110,17 +104,14 @@
                     padding: 7px;
                     box-sizing: border-box;
 
-                    &.eb-hp{
-                        flex-basis: 90px;
-                    }
-                    &.eb-wealth{
-                        flex-basis: 80px;
-                    }
-                    &.eb-armor{
-                        flex-basis: 70px;
-                    }
-                    &.eb-deprived{
-                        flex-basis: 90px;
+                    label{
+                        font-family: 'Inter Tight', sans-serif;
+                        letter-spacing: 0.02em;
+                        font-weight: 600;
+                        display: block;
+                        margin-bottom: 4px;
+                        font-size: 12px;
+                        align-self: flex-start;
                     }
                 }
             }
@@ -130,13 +121,14 @@
         /////////////////////////////////////////////////////////////////////////////
 
         .profile-img {
-            -webkit-box-flex: 0;
-            -ms-flex: 0 0 165px;
-            flex: 0 0 165px;
+            width: 165px;
             height: 165px;
+            flex-basis: 165px;
+            flex-grow: 0;
             margin-right: 0px;
             background-color: var(--lightgrey);
             border-width: 0;
+            display: none;
         }
 
         /////////////////////////////////////////////////////////////////////////////
@@ -156,6 +148,17 @@
         
         .eb-value-row{
             align-items: center;
+
+            input{
+                flex-basis: 39px;
+                flex-grow: 0;
+                flex-shrink: 1;
+            }
+            span{
+                flex-basis: 20px;
+                flex-grow: 0;
+                flex-shrink: 2;
+            }
         }
 
         .resource-label {
@@ -207,7 +210,7 @@
         flex: 0;
         align-self: flex-start;
         z-index: 9;
-        height: 32px;
+        height: 34px;
     
         .sheet-tabs {
             -webkit-box-flex: 0;
@@ -216,14 +219,14 @@
         }
     
         .tabs {
-            height: 32px;
+            height: 33px;
             border-top: none;
             border-bottom: none;
             gap: 5px;
             margin: 0;
     
             .item {
-                background-color: var(--maincolorbgdarker);
+                background-color: transparent;
                 border-radius: 10px 10px 0 0;
                 padding: 0px 15px;
                 line-height: 32px;
@@ -231,11 +234,15 @@
                 letter-spacing: 0.02em;
                 font-weight: 600;
                 font-size: 12px;
+                background: transparent;
+                border: 1px solid var(--maincolorbgdarker);
+                border-bottom: none;
 
                 &.active {
                     text-decoration: none;
                     text-shadow: none;
                     background: var(--white);
+                    border-color: var(--white);
                 }
             }
         }
@@ -248,6 +255,8 @@
         flex-grow: 3;
         background: var(--white);
         border-top-left-radius: 0;
+        padding: 5px 15px;
+        box-sizing: border-box;
     
         &, .tab, .tab .editor{
             height: 100%;
@@ -257,11 +266,78 @@
     /////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////
 
+    .eb-sheet-action-buttons{
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        padding: 20px 0 40px;
+
+        button{
+            background: var(--secondcolorbg);
+            border: none;
+            outline: 1px solid var(--dark);
+            border-radius: 5px;
+            padding: 1px 10px;
+            color: var(--white);
+            font-family: 'Inter Tight', sans-serif;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            font-size: 12px;
+            -webkit-font-smoothing: antialiased;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+            
+            &:hover{
+                background: var(--darkgrey);
+            }
+        }
+    }
+
+    /////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
+
     @container sheetContainer (width >= 400px){
+
         .eb-main-abilities{
             display: flex;
             flex-direction: row;
             gap: 10px;
+        }
+
+        .sheet-header .eb-infos-wrapper{
+            
+            .eb-main-stat-wrapper{
+                display: flex;
+                flex-direction: row;
+
+                .eb-main-stat{
+                    &.eb-hp{
+                        flex-basis: 90px;
+                    }
+                    &.eb-wealth{
+                        flex-basis: 80px;
+                    }
+                    &.eb-armor{
+                        flex-basis: 70px;
+                    }
+                    &.eb-deprived{
+                        flex-basis: 90px;
+                    }
+                }
+
+            }
+        }
+    }
+
+    /////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
+
+    @container sheetContainer (width >= 590px){
+        .sheet-header .profile-img{
+            display: block;
+        }
+
+        .eb-sheet-action-buttons{
+            flex-direction: row;
         }
     }
 }
@@ -273,7 +349,7 @@
     list-style: none;
     margin: 7px 0;
     padding: 0;
-    overflow-y: auto;
+    overflow-y: hidden;
     .item-header {
         font-weight: bold;
     }
@@ -292,6 +368,35 @@
             display: block;
         }
         
+
+        &:last-child{
+            border-bottom: none;
+        }
+
+        &.eb-new-row{
+            justify-content: center;
+            .item-controls{
+                text-align: center;
+
+                .item-create{
+                    display: inline-flex;
+                    flex-direction: column;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    justify-content: center;
+                    margin: 5px 0 0;
+                    background: var(--middlegrey);
+                    i{
+                        color: var(--white);
+                    }
+
+                    &:hover{
+                        background: var(--darkgrey);
+                    }
+                }
+            }
+        }
     }
     .item-name {
         margin: 0;
