@@ -1,0 +1,20 @@
+{
+    "EB.Sheet.Name": "Name",
+    "EB.Sheet.FailedCareer": "Gescheiterte Karriere",
+    "EB.Sheet.Hitpoints": "Trefferpunkte",
+    "EB.Sheet.HP": "TP",
+    "EB.Sheet.Pounds": "Pfund",
+    "EB.Sheet.Wealth": "Vermögen",
+    "EB.Sheet.Armor": "Rüstung",
+    "EB.Sheet.Deprived": "Beeinträchtigt",
+    "EB.Sheet.Items": "Inventar",
+    "EB.Sheet.Description": "Beschreibung",
+    "EB.Sheet.MakeDamage": "Schaden machen",
+    "EB.Sheet.Rest": "Ausruhen",
+    "EB.Sheet.RestoreAbilities": "Attribute wiederherstellen",
+    "EB.Sheet.Luck": "Glück",
+    "EB.Sheet.Strength": "Stärke",
+    "EB.Sheet.Charisma": "Charisma",
+    "EB.Sheet.Dexterity": "Geschicklichkeit",
+    "EB.Sheet.Roll": "Würfeln"
+}

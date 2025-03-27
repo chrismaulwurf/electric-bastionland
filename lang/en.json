@@ -1,0 +1,20 @@
+{
+    "EB.Sheet.Name": "Name",
+    "EB.Sheet.FailedCareer": "Failed career",
+    "EB.Sheet.Hitpoints": "Hitpoints",
+    "EB.Sheet.HP": "HP",
+    "EB.Sheet.Pounds": "Pounds",
+    "EB.Sheet.Wealth": "Wealth",
+    "EB.Sheet.Armor": "Armor",
+    "EB.Sheet.Deprived": "Deprived",
+    "EB.Sheet.Items": "Items",
+    "EB.Sheet.Description": "Description",
+    "EB.Sheet.MakeDamage": "Make damage",
+    "EB.Sheet.Rest": "Rest",
+    "EB.Sheet.RestoreAbilities": "Restore abilities",
+    "EB.Sheet.Luck": "Luck",
+    "EB.Sheet.Strength": "Strength",
+    "EB.Sheet.Charisma": "Charisma",
+    "EB.Sheet.Dexterity": "Dexterity",
+    "EB.Sheet.Roll": "Roll"
+}

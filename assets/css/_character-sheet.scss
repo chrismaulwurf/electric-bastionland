@@ -1,0 +1,337 @@
+.system-electricbastionland .sheet{
+    container-name: sheetContainer;
+    container-type: inline-size;
+
+    /////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
+
+    .window-content > form{
+        max-width: 600px;
+        margin: auto;
+    }
+
+    /////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
+
+    .eb-card{
+        background-color: var(--white);
+        border-radius: 10px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    }
+
+    /////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
+
+    .sheet-header {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 165px;
+        flex: 0 0 165px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+        margin-bottom: 10px;
+        gap: 20px;
+        overflow: hidden;
+        align-items: flex-start;
+
+        /////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////
+
+        .eb-infos-wrapper{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            box-sizing: border-box;
+            padding: 10px;
+
+            .eb-name-wrapper{
+                display: flex;
+                flex-direction: column;
+                gap: 0px;
+
+                h1.charname {
+                    height: 50px;
+                    padding: 0px;
+                    margin: 5px 0 0;
+                    border-bottom: 0;
+                    background-color: transparent;
+                    color: var(--dark);
+                    input {
+                        width: 100%;
+                        height: 100%;
+                        margin: 0;
+                        font-weight: bold;
+                        border: 0px;
+                        background-color: transparent;
+                        color: var(--dark);
+                        &::placeholder {
+                            color: var(--middlegrey);
+                        }    
+                    }
+                }                
+
+                h2.failed-career{
+                    line-height: 14px;
+                    height: 14px;
+                    input {
+                        border: 0px;
+                        background-color: var(--white);
+                        color: var(--grey);
+                        padding: 0 2px;
+                        font-size: 12px;
+                        line-height: 12px;
+                        letter-spacing: 0.05em;
+                        font-style: italic;
+                        height: 14px;
+                        &::placeholder {
+                            color: var(--middlegrey);
+                        }
+                    }
+                }
+            }
+
+            .eb-main-stat-wrapper{
+                display: flex;
+                flex-direction: row;
+                gap: 5px;
+
+                .eb-main-stat{
+                    border: 1px solid var(--lightgrey);
+                    border-radius: 7px;
+                    padding: 7px;
+                    box-sizing: border-box;
+
+                    &.eb-hp{
+                        flex-basis: 90px;
+                    }
+                    &.eb-wealth{
+                        flex-basis: 80px;
+                    }
+                    &.eb-armor{
+                        flex-basis: 70px;
+                    }
+                    &.eb-deprived{
+                        flex-basis: 90px;
+                    }
+                }
+            }
+        }
+
+        /////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////
+
+        .profile-img {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 165px;
+            flex: 0 0 165px;
+            height: 165px;
+            margin-right: 0px;
+            background-color: var(--lightgrey);
+            border-width: 0;
+        }
+
+        /////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////
+
+    }
+    
+    .eb-main-abilities{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 13px 0 20px 0;
+
+        .ability{
+            padding: 10px;
+        }
+        
+        .eb-value-row{
+            align-items: center;
+        }
+
+        .resource-label {
+            font-family: 'Inter Tight', sans-serif;
+            letter-spacing: 0.02em;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 4px;
+            font-size: 12px;
+            align-self: flex-start;
+        }
+        
+        .resource-button {
+            font-family: 'Inter Tight', sans-serif;
+            letter-spacing: 0.01em;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 4px;
+            align-self: flex-start;
+            margin: 7px 0 0;
+            background: var(--secondcolorbg);
+            color: var(--white);
+            border: 1px solid #000;
+            -webkit-font-smoothing: antialiased;
+            font-size: 12px;
+            display: flex;
+            gap: 5px;
+            align-items: center;
+            justify-content: space-between;
+            justify-content: center;
+
+            &:hover {
+                background: var(--secondcolorbghover);
+            }
+
+            i {
+                font-size: 16px;
+            }
+        }
+    }
+
+    /////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
+
+    .sheet-tabs-container {
+        display: flex;
+        -webkit-box-flex: 0;
+        -ms-flex: 0;
+        flex: 0;
+        align-self: flex-start;
+        z-index: 9;
+        height: 32px;
+    
+        .sheet-tabs {
+            -webkit-box-flex: 0;
+            -ms-flex: 0;
+            flex: 0;
+        }
+    
+        .tabs {
+            height: 32px;
+            border-top: none;
+            border-bottom: none;
+            gap: 5px;
+            margin: 0;
+    
+            .item {
+                background-color: var(--maincolorbgdarker);
+                border-radius: 10px 10px 0 0;
+                padding: 0px 15px;
+                line-height: 32px;
+                font-family: 'Inter Tight', sans-serif;
+                letter-spacing: 0.02em;
+                font-weight: 600;
+                font-size: 12px;
+
+                &.active {
+                    text-decoration: none;
+                    text-shadow: none;
+                    background: var(--white);
+                }
+            }
+        }
+    }
+
+    /////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
+
+    .sheet-body {
+        flex-grow: 3;
+        background: var(--white);
+        border-top-left-radius: 0;
+    
+        &, .tab, .tab .editor{
+            height: 100%;
+        }
+    }
+
+    /////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
+
+    @container sheetContainer (width >= 400px){
+        .eb-main-abilities{
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+        }
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+
+.electricbastionland .items-list {
+    list-style: none;
+    margin: 7px 0;
+    padding: 0;
+    overflow-y: auto;
+    .item-header {
+        font-weight: bold;
+    }
+    .item {
+        height: 30px;
+        line-height: 24px;
+        padding: 3px 0;
+        border-bottom: 1px solid #BBB;
+        .item-image {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 24px;
+            flex: 0 0 24px;
+            margin-right: 5px;
+        }
+        img {
+            display: block;
+        }
+        
+    }
+    .item-name {
+        margin: 0;
+    }
+    .item-controls {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 86px;
+        flex: 0 0 86px;
+        text-align: right;
+    }
+    .item-info {
+        margin-left: 4px;
+        border-style: solid;
+        border-width: thin;
+        border-radius: 3px;
+        padding-left: 4px;
+        padding-right: 4px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+    .clickable {
+        background-color: #669;
+        color: white;
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+
+.electricbastionland .checkbox-block {
+    display: block;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+
+.electricbastionland .editor {
+    height: 100%;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+

@@ -1,0 +1,57 @@
+{
+  "Actor": {
+    "types": [
+      "character"
+    ],
+    "character": {
+      "templates": [
+        "base"
+      ],
+      "failedCareer": "",
+      "playerName": "",
+      "biography": "",
+      "deprived": false,
+      "tooBulky": false,
+      "pounds": 0,
+      "armor": 0,
+      "attributes": {},
+      "groups": {},
+      "hp": {
+        "value": 10,
+        "max": 10
+      },
+      "abilities": {
+        "STR": {
+          "value": 10,
+          "max": 10,
+          "nameFull": "Stärke"
+        },
+        "DEX": {
+          "value": 10,
+          "max": 10,
+          "nameFull": "Geschicklichkeit"
+        },
+        "CHA": {
+          "value": 10,
+          "max": 10,
+          "nameFull": "Charisma"
+        }
+      }
+    }
+  },
+  "Item": {
+    "types": [
+      "item"
+    ],
+    "item": {
+      "description": "",
+      "quantity": 1,
+      "armor": 0,
+      "damageFormula": "",
+      "equipped": false,
+      "bulky": false,
+      "blast": false,   
+      "numberOfUses": 0
+    }
+  }
+}
