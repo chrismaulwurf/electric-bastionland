@@ -173,8 +173,6 @@
     {{!-- Sheet Body --}}
     <section class="sheet-body eb-card">
 
-        {{log this}}
-
         {{!-- Biography Tab --}}
         <div
             class="tab biography"
@@ -202,8 +200,7 @@
             <ol class="items-list">
                
                 {{#each actor.items as |item id|}}
-                    {{log this}}
-                    {{log item}}
+                 
                     <li
                         class="item flexrow"
                         data-item-id="{{item.id}}">
