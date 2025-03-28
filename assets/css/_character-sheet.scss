@@ -104,6 +104,23 @@
                     padding: 7px;
                     box-sizing: border-box;
 
+                    .resource-content{
+                        align-items: center;
+                        justify-content: flex-start;
+                        
+                        input{
+                            flex-basis: 30px;
+                            flex-grow: 0;
+                            flex-shrink: 1;
+                        }
+                        
+                        span{
+                            flex-basis: 17px;
+                            flex-grow: 0;
+                            flex-shrink: 2;
+                        }
+                    }
+
                     label{
                         font-family: 'Inter Tight', sans-serif;
                         letter-spacing: 0.02em;
@@ -150,10 +167,11 @@
             align-items: center;
 
             input{
-                flex-basis: 39px;
+                flex-basis: 34px;
                 flex-grow: 0;
                 flex-shrink: 1;
             }
+
             span{
                 flex-basis: 20px;
                 flex-grow: 0;
@@ -252,15 +270,11 @@
     /////////////////////////////////////////////////////////////////////////////
 
     .sheet-body {
-        flex-grow: 3;
         background: var(--white);
         border-top-left-radius: 0;
         padding: 5px 15px;
         box-sizing: border-box;
-    
-        &, .tab, .tab .editor{
-            height: 100%;
-        }
+        flex: initial;
     }
 
     /////////////////////////////////////////////////////////////////////////////
@@ -287,7 +301,7 @@
             box-shadow: 0 5px 10px rgba(0,0,0,0.3);
             
             &:hover{
-                background: var(--darkgrey);
+                background: var(--secondcolorbghover);
             }
         }
     }
@@ -299,6 +313,7 @@
 
         .eb-main-abilities{
             display: flex;
+            flex: initial;
             flex-direction: row;
             gap: 10px;
         }
@@ -308,16 +323,17 @@
             .eb-main-stat-wrapper{
                 display: flex;
                 flex-direction: row;
+                gap: 5px;
 
                 .eb-main-stat{
                     &.eb-hp{
-                        flex-basis: 90px;
+                        flex-basis: 95px;
                     }
                     &.eb-wealth{
-                        flex-basis: 80px;
+                        flex-basis: 70px;
                     }
                     &.eb-armor{
-                        flex-basis: 70px;
+                        flex-basis: 60px;
                     }
                     &.eb-deprived{
                         flex-basis: 90px;
@@ -331,7 +347,7 @@
     /////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////
 
-    @container sheetContainer (width >= 590px){
+    @container sheetContainer (width >= 580px){
         .sheet-header .profile-img{
             display: block;
         }
@@ -340,6 +356,47 @@
             flex-direction: row;
         }
     }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+
+.electricbastionland .biography.active{
+    padding: 13px 0;
+    
+    textarea{
+        min-height: 138px;
+    }
+
+    .grow-wrap{
+        display: grid;
+    }
+
+    .grow-wrap::after {
+        /* Note the weird space! Needed to preventy jumpy behavior */
+        content: attr(data-replicated-value) " ";
+        /* This is how textarea text behaves */
+        white-space: pre-wrap;
+        /* Hidden from view, clicks, and screen readers */
+        visibility: hidden;
+      }
+      
+      .grow-wrap > textarea {
+        /* You could leave this, but after a user resizes, then it ruins the auto sizing */
+        resize: none;
+        /* Firefox shows scrollbar on growth, you can hide like this. */
+        overflow: hidden;
+      }
+      
+      .grow-wrap > textarea,
+      .grow-wrap::after {
+        /* Identical styling required!! */
+        border: 1px solid black;
+        padding: 0.5rem;
+        font: inherit;
+        /* Place on top of each other */
+        grid-area: 1 / 1 / 2 / 2;
+      }
 }
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -386,13 +443,13 @@
                     border-radius: 50%;
                     justify-content: center;
                     margin: 5px 0 0;
-                    background: var(--middlegrey);
+                    background: var(--darkgrey);
                     i{
                         color: var(--white);
                     }
 
                     &:hover{
-                        background: var(--darkgrey);
+                        background: var(--dark);
                     }
                 }
             }

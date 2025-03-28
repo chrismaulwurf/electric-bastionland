@@ -345,6 +345,20 @@
   padding: 7px;
   box-sizing: border-box;
 }
+.system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat .resource-content {
+  align-items: center;
+  justify-content: flex-start;
+}
+.system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat .resource-content input {
+  flex-basis: 30px;
+  flex-grow: 0;
+  flex-shrink: 1;
+}
+.system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat .resource-content span {
+  flex-basis: 17px;
+  flex-grow: 0;
+  flex-shrink: 2;
+}
 .system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat label {
   font-family: "Inter Tight", sans-serif;
   letter-spacing: 0.02em;
@@ -377,7 +391,7 @@
   align-items: center;
 }
 .system-electricbastionland .sheet .eb-main-abilities .eb-value-row input {
-  flex-basis: 39px;
+  flex-basis: 34px;
   flex-grow: 0;
   flex-shrink: 1;
 }
@@ -457,14 +471,11 @@
   border-color: var(--white);
 }
 .system-electricbastionland .sheet .sheet-body {
-  flex-grow: 3;
   background: var(--white);
   border-top-left-radius: 0;
   padding: 5px 15px;
   box-sizing: border-box;
-}
-.system-electricbastionland .sheet .sheet-body, .system-electricbastionland .sheet .sheet-body .tab, .system-electricbastionland .sheet .sheet-body .tab .editor {
-  height: 100%;
+  flex: initial;
 }
 .system-electricbastionland .sheet .eb-sheet-action-buttons {
   display: flex;
@@ -487,38 +498,73 @@
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 .system-electricbastionland .sheet .eb-sheet-action-buttons button:hover {
-  background: var(--darkgrey);
+  background: var(--secondcolorbghover);
 }
 @container sheetContainer (width >= 400px) {
   .system-electricbastionland .sheet .eb-main-abilities {
     display: flex;
+    flex: initial;
     flex-direction: row;
     gap: 10px;
   }
   .system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper {
     display: flex;
     flex-direction: row;
+    gap: 5px;
   }
   .system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat.eb-hp {
-    flex-basis: 90px;
+    flex-basis: 95px;
   }
   .system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat.eb-wealth {
-    flex-basis: 80px;
+    flex-basis: 70px;
   }
   .system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat.eb-armor {
-    flex-basis: 70px;
+    flex-basis: 60px;
   }
   .system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat.eb-deprived {
     flex-basis: 90px;
   }
 }
-@container sheetContainer (width >= 590px) {
+@container sheetContainer (width >= 580px) {
   .system-electricbastionland .sheet .sheet-header .profile-img {
     display: block;
   }
   .system-electricbastionland .sheet .eb-sheet-action-buttons {
     flex-direction: row;
   }
+}
+
+.electricbastionland .biography.active {
+  padding: 13px 0;
+}
+.electricbastionland .biography.active textarea {
+  min-height: 138px;
+}
+.electricbastionland .biography.active .grow-wrap {
+  display: grid;
+}
+.electricbastionland .biography.active .grow-wrap::after {
+  /* Note the weird space! Needed to preventy jumpy behavior */
+  content: attr(data-replicated-value) " ";
+  /* This is how textarea text behaves */
+  white-space: pre-wrap;
+  /* Hidden from view, clicks, and screen readers */
+  visibility: hidden;
+}
+.electricbastionland .biography.active .grow-wrap > textarea {
+  /* You could leave this, but after a user resizes, then it ruins the auto sizing */
+  resize: none;
+  /* Firefox shows scrollbar on growth, you can hide like this. */
+  overflow: hidden;
+}
+.electricbastionland .biography.active .grow-wrap > textarea,
+.electricbastionland .biography.active .grow-wrap::after {
+  /* Identical styling required!! */
+  border: 1px solid black;
+  padding: 0.5rem;
+  font: inherit;
+  /* Place on top of each other */
+  grid-area: 1/1/2/2;
 }
 
 .electricbastionland .items-list {
@@ -560,13 +606,13 @@
   border-radius: 50%;
   justify-content: center;
   margin: 5px 0 0;
-  background: var(--middlegrey);
+  background: var(--darkgrey);
 }
 .electricbastionland .items-list .item.eb-new-row .item-controls .item-create i {
   color: var(--white);
 }
 .electricbastionland .items-list .item.eb-new-row .item-controls .item-create:hover {
-  background: var(--darkgrey);
+  background: var(--dark);
 }
 .electricbastionland .items-list .item-name {
   margin: 0;

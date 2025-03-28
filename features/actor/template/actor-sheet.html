@@ -180,13 +180,18 @@
             class="tab biography"
             data-group="primary"
             data-tab="description">
-            {{
-            editor
-            enrichedBiography
-            target="systemData.biography.value"
-            button=true
-            editable=editable
-            }}
+
+
+            <div class="grow-wrap" data-replicated-value="{{systemData.biography}}">
+                <textarea 
+                    data-field="systemData.biography" 
+                    id="biography" 
+                    name="system.biography"
+                    onInput="this.parentNode.dataset.replicatedValue = this.value"
+                >{{systemData.biography}}</textarea>
+            </div>
+
+
         </div>
 
         {{!-- Owned Items Tab --}}
