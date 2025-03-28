@@ -3,7 +3,7 @@
  */
 export class ElectricBastionlandActorSheet extends ActorSheet {
     
-    CHAT_TEMPLATE = "systems/electricbastionland/features/chat/template/roll.html"
+    CHAT_TEMPLATE = "systems/electricbastionland/features/chat/template/roll.hbs"
 
     ///////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////
@@ -16,7 +16,7 @@ export class ElectricBastionlandActorSheet extends ActorSheet {
                 "sheet",
                 "actor"
             ],
-            template: "systems/electricbastionland/features/actor/template/actor-sheet.html",
+            template: "systems/electricbastionland/features/actor/template/actor-sheet.hbs",
             width: 620,
             height: 640,
             tabs: [

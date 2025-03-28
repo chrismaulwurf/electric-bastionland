@@ -21,7 +21,7 @@ export class ElectricBastionlandItemSheet extends ItemSheet {
     /** @override */
     get template () {
         const path = "systems/electricbastionland/features/item/template/";
-        return `${path}/item-sheet.html`;
+        return `${path}/item-sheet.hbs`;
     }
 
     ///////////////////////////////////////////////////////////////////////////////////
