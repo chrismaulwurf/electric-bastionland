@@ -1,10 +1,9 @@
 /**
- * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheet}
  */
 export class ElectricBastionlandActorSheet extends ActorSheet {
     
-    CHAT_TEMPLATE = "systems/electricbastionland/templates/dice/roll.html"
+    CHAT_TEMPLATE = "systems/electricbastionland/features/chat/template/roll.html"
 
     ///////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////
@@ -17,7 +16,7 @@ export class ElectricBastionlandActorSheet extends ActorSheet {
                 "sheet",
                 "actor"
             ],
-            template: "systems/electricbastionland/templates/actor/actor-sheet.html",
+            template: "systems/electricbastionland/features/actor/template/actor-sheet.html",
             width: 620,
             height: 600,
             tabs: [

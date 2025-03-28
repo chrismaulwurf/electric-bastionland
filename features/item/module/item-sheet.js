@@ -1,5 +1,4 @@
 /**
- * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
  */
 export class ElectricBastionlandItemSheet extends ItemSheet {
@@ -21,7 +20,7 @@ export class ElectricBastionlandItemSheet extends ItemSheet {
 
     /** @override */
     get template () {
-        const path = "systems/electricbastionland/templates/item";
+        const path = "systems/electricbastionland/features/item/template/";
         return `${path}/item-sheet.html`;
     }
 

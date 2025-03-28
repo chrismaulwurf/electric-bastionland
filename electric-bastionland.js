@@ -1,8 +1,8 @@
 // Import Modules
-import { ElectricBastionlandActor } from "./actor/actor.js";
-import { ElectricBastionlandActorSheet } from "./actor/actor-sheet.js";
-import { ElectricBastionlandItem } from "./item/item.js";
-import { ElectricBastionlandItemSheet } from "./item/item-sheet.js";
+import { ElectricBastionlandActor } from "./features/actor/module/actor.js";
+import { ElectricBastionlandActorSheet } from "./features/actor/module/actor-sheet.js";
+import { ElectricBastionlandItem } from "./features/item/module/item.js";
+import { ElectricBastionlandItemSheet } from "./features/item/module/item-sheet.js";
 
 Hooks.once('init', async function () {
 
@@ -10,7 +10,6 @@ Hooks.once('init', async function () {
     Actors.registerSheet("electricbastionland", ElectricBastionlandActorSheet, {makeDefault: true});
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet("electricbastionland", ElectricBastionlandItemSheet, {makeDefault: true});
-
 
     game.electricbastionland = {
         apps: {

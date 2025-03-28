@@ -11,11 +11,11 @@
   "license": "LICENSE",
   "version": "1.0.0",
   "compatibility": {
-    "minimum": "11",
+    "minimum": "12",
     "verified": "12"
   },
   "esmodules": [
-    "modules/electric-bastionland.js"
+    "electric-bastionland.js"
   ],
   "styles": [
     "assets/css/electric-bastionland.css"
@@ -40,8 +40,10 @@
   "relationships": [],
   "manifest": "https://github.com/chrismaulwurf/electric-bastionland/master/system.json",
   "download": "https://github.com/chrismaulwurf/electric-bastionland/download/1.0.0.zip",
-  "gridDistance": 1,
-  "gridUnits": "m",
+  "grid": {
+    "distance": 1,
+    "units": "m"
+  },
   "primaryTokenAttribute": "hp",
   "id": "electricbastionland"
 }
