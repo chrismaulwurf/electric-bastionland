@@ -18,7 +18,7 @@ export class ElectricBastionlandActorSheet extends ActorSheet {
             ],
             template: "systems/electricbastionland/features/actor/template/actor-sheet.html",
             width: 620,
-            height: 620,
+            height: 640,
             tabs: [
                 {
                     navSelector: ".sheet-tabs",
