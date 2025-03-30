@@ -16,5 +16,21 @@
     "EB.Sheet.Strength": "Stärke",
     "EB.Sheet.Charisma": "Charisma",
     "EB.Sheet.Dexterity": "Geschicklichkeit",
-    "EB.Sheet.Roll": "Würfeln"
+    "EB.Sheet.Roll": "Würfeln",
+    "EB.Item.Name": "Name",
+    "EB.Item.Bulky": "Sperrig",
+    "EB.Item.Quantity": "Anzahl",
+    "EB.Item.NumberOfUses": "Anzahl an Nutzungen",
+    "EB.Item.Armor": "Rüstung",
+    "EB.Item.Damage": "Schaden",
+    "EB.Item.DamagePlaceholder": "z.B. 1D6",
+    "EB.Item.Description": "Beschreibung",
+    "EB.Chat.RollOn": "Wurf auf",
+    "EB.Chat.CharacterStat": "Character-Wert",
+    "EB.Chat.RollResult": "Würfelergebnis",
+    "EB.Chat.Success": "Erfolg",
+    "EB.Chat.Luck": "Glück",
+    "EB.Chat.SuccessFull": "Erfolg",
+    "EB.Chat.SuccessComplications": "Erfolg mit Komplikationen",
+    "EB.Chat.Failure": "Fehlschlag"
 }

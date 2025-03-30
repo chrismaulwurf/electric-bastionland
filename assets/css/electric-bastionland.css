@@ -10,9 +10,11 @@
   --darkgrey: #39394f;
   --grey: #4e5758;
   --lightgrey: #d9d9d9;
+  --lightgreyalternate: #bfbfbf;
   --middlegrey: #8e9798;
   --color-shadow-primary: transparent;
   --color-red: #cc0050;
+  --color-orange: #ec8a00;
   --color-green: #007e63;
 }
 
@@ -228,6 +230,11 @@
   padding-top: 6px;
   margin-top: 5px;
 }
+.ebr-chat-result > div.ebr-intro i {
+  font-style: normal;
+  font-size: 11px;
+  color: var(--middlegrey);
+}
 .ebr-chat-result > div.ebr-result {
   border-top: none;
   align-items: center;
@@ -246,6 +253,18 @@
   color: var(--white);
 }
 .ebr-chat-result[data-is-success=false] > div.ebr-result {
+  background: var(--color-red);
+  color: var(--white);
+}
+.ebr-chat-result[data-success-level="2"] > div.ebr-result {
+  background: var(--color-green);
+  color: var(--white);
+}
+.ebr-chat-result[data-success-level="1"] > div.ebr-result {
+  background: var(--color-orange);
+  color: var(--white);
+}
+.ebr-chat-result[data-success-level="0"] > div.ebr-result {
   background: var(--color-red);
   color: var(--white);
 }
@@ -538,33 +557,12 @@
   padding: 13px 0;
 }
 .electricbastionland .biography.active textarea {
+  background-color: var(--white);
+  border: 1px solid var(--lightgrey);
+  border-radius: 7px;
+  padding: 7px;
+  box-sizing: border-box;
   min-height: 138px;
-}
-.electricbastionland .biography.active .grow-wrap {
-  display: grid;
-}
-.electricbastionland .biography.active .grow-wrap::after {
-  /* Note the weird space! Needed to preventy jumpy behavior */
-  content: attr(data-replicated-value) " ";
-  /* This is how textarea text behaves */
-  white-space: pre-wrap;
-  /* Hidden from view, clicks, and screen readers */
-  visibility: hidden;
-}
-.electricbastionland .biography.active .grow-wrap > textarea {
-  /* You could leave this, but after a user resizes, then it ruins the auto sizing */
-  resize: none;
-  /* Firefox shows scrollbar on growth, you can hide like this. */
-  overflow: hidden;
-}
-.electricbastionland .biography.active .grow-wrap > textarea,
-.electricbastionland .biography.active .grow-wrap::after {
-  /* Identical styling required!! */
-  border: 1px solid black;
-  padding: 0.5rem;
-  font: inherit;
-  /* Place on top of each other */
-  grid-area: 1/1/2/2;
 }
 
 .electricbastionland .items-list {
@@ -576,11 +574,109 @@
 .electricbastionland .items-list .item-header {
   font-weight: bold;
 }
+.electricbastionland .items-list .eb-item-infos {
+  display: flex;
+  flex-direction: row;
+  flex: initial;
+  gap: 5px;
+  flex-basis: 450px;
+}
 .electricbastionland .items-list .item {
   height: 30px;
   line-height: 24px;
   padding: 3px 0;
-  border-bottom: 1px solid #BBB;
+  border-bottom: 1px solid var(--lightgrey);
+  gap: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.electricbastionland .items-list .item .eb-item-infos > span input {
+  height: 24px;
+  border-color: transparent;
+  background-color: transparent;
+}
+.electricbastionland .items-list .item .eb-item-infos > span.eb-item-quantity {
+  flex-basis: 23px;
+  text-align: center;
+}
+.electricbastionland .items-list .item .eb-item-infos > span.eb-item-quantity input {
+  border: none;
+  border-radius: 50%;
+  background: var(--lightgrey);
+  width: 20px;
+  height: 20px;
+  font-size: 11px;
+  margin-right: 0;
+}
+.electricbastionland .items-list .item .eb-item-infos > span.eb-item-name {
+  flex-grow: 1;
+  flex-basis: 200px;
+}
+.electricbastionland .items-list .item .eb-item-infos > span.eb-item-name input {
+  border-color: transparent;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 13px;
+  -webkit-font-smoothing: antialiased;
+  height: 22px;
+}
+.electricbastionland .items-list .item .eb-item-infos > span.eb-item-armor {
+  flex-basis: 70px;
+  display: flex;
+}
+.electricbastionland .items-list .item .eb-item-infos > span.eb-item-damage-formula {
+  flex-basis: 28px;
+  display: flex;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+.electricbastionland .items-list .item .eb-item-infos > span.eb-item-damage-formula input {
+  text-align: center;
+  width: 100%;
+}
+.electricbastionland .items-list .item .eb-item-infos > span.eb-item-damage-formula input::-moz-placeholder {
+  font-size: 10px;
+  letter-spacing: 0.03em;
+  color: var(--lightgrey);
+}
+.electricbastionland .items-list .item .eb-item-infos > span.eb-item-damage-formula input::placeholder {
+  font-size: 10px;
+  letter-spacing: 0.03em;
+  color: var(--lightgrey);
+}
+.electricbastionland .items-list .item .eb-item-infos > span.eb-item-damage-formula input:not(:-moz-placeholder-shown) {
+  border-color: var(--dark);
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+}
+.electricbastionland .items-list .item .eb-item-infos > span.eb-item-damage-formula input:not(:placeholder-shown) {
+  border-color: var(--dark);
+  font-size: 11px;
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+}
+.electricbastionland .items-list .item .eb-item-infos > span.eb-bulky-status {
+  color: var(--lightgrey);
+  border: 1px solid var(--lightgrey);
+  border-radius: 3px;
+  height: 24px;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  padding: 0 5px;
+  flex-basis: 50px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  display: none;
+}
+.electricbastionland .items-list .item .eb-item-infos > span.eb-bulky-status.active {
+  border-color: var(--dark);
+  color: var(--dark);
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
 }
 .electricbastionland .items-list .item .item-image {
   flex: 0 0 24px;
@@ -594,9 +690,11 @@
 }
 .electricbastionland .items-list .item.eb-new-row {
   justify-content: center;
+  justify-content: center;
 }
 .electricbastionland .items-list .item.eb-new-row .item-controls {
   text-align: center;
+  justify-content: center;
 }
 .electricbastionland .items-list .item.eb-new-row .item-controls .item-create {
   display: inline-flex;
@@ -605,7 +703,7 @@
   height: 20px;
   border-radius: 50%;
   justify-content: center;
-  margin: 5px 0 0;
+  margin: 10px 0 0;
   background: var(--darkgrey);
 }
 .electricbastionland .items-list .item.eb-new-row .item-controls .item-create i {
@@ -618,8 +716,49 @@
   margin: 0;
 }
 .electricbastionland .items-list .item-controls {
-  flex: 0 0 86px;
+  display: flex;
+  flex: initial;
+  gap: 5px;
   text-align: right;
+  flex-basis: 60px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  font-size: 11px;
+}
+.electricbastionland .items-list .item-controls .item-control {
+  color: var(--darkgrey);
+}
+.electricbastionland .items-list .item-controls .item-control:hover {
+  color: var(--dark);
+}
+.electricbastionland .items-list .item-controls .roll-damage {
+  background: var(--secondcolorbg);
+  color: var(--white);
+  background: var(--secondcolorbg);
+  border: none;
+  outline: 1px solid var(--dark);
+  border-radius: 3px;
+  padding: 1px 6px;
+  color: var(--white);
+  font-family: "Inter Tight", sans-serif;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  line-height: 13px;
+  font-size: 11px;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  height: 22px;
+  align-self: center;
+}
+.electricbastionland .items-list .item-controls .roll-damage b {
+  display: none;
+}
+.electricbastionland .items-list .item-controls .roll-damage:hover {
+  background: var(--secondcolorbghover);
 }
 .electricbastionland .items-list .item-info {
   margin-left: 4px;
@@ -635,6 +774,32 @@
   background-color: #669;
   color: white;
 }
+@container sheetContainer (width >= 300px) {
+  .electricbastionland .items-list .item-controls {
+    gap: 10px;
+    flex-basis: 90px;
+  }
+}
+@container sheetContainer (width >= 400px) {
+  .electricbastionland .items-list .item .eb-item-infos {
+    gap: 15px;
+  }
+  .electricbastionland .items-list .item .eb-item-infos > span.eb-item-damage-formula {
+    flex-basis: 50px;
+  }
+  .electricbastionland .items-list .item-controls {
+    gap: 10px;
+    flex-basis: 135px;
+  }
+  .electricbastionland .items-list .item-controls .roll-damage b {
+    display: inline-block;
+  }
+}
+@container sheetContainer (width >= 580px) {
+  .electricbastionland .items-list .item-controls {
+    flex-basis: 150px;
+  }
+}
 
 .electricbastionland .checkbox-block {
   display: block;
@@ -642,6 +807,118 @@
 
 .electricbastionland .editor {
   height: 100%;
+}
+
+.system-electricbastionland .sheet.item .window-content form {
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  box-sizing: border-box;
+  flex: initial;
+  max-width: 700px;
+}
+.system-electricbastionland .sheet.item .window-content form h1 {
+  height: 40px;
+  padding: 0px;
+  margin: 0;
+  border-bottom: 0;
+  background-color: transparent;
+  color: var(--dark);
+}
+.system-electricbastionland .sheet.item .window-content form h1 input {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-weight: bold;
+  border: 0px;
+  background-color: transparent;
+  color: var(--dark);
+}
+.system-electricbastionland .sheet.item .window-content form h1 input::-moz-placeholder {
+  color: var(--middlegrey);
+}
+.system-electricbastionland .sheet.item .window-content form h1 input::placeholder {
+  color: var(--middlegrey);
+}
+.system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px 0 15px;
+}
+.system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper .eb-main-stat {
+  border: 1px solid var(--lightgrey);
+  border-radius: 7px;
+  padding: 7px;
+  box-sizing: border-box;
+}
+.system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper .eb-main-stat .resource-content {
+  align-items: center;
+  justify-content: flex-start;
+}
+.system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper .eb-main-stat .resource-content input {
+  flex-basis: 30px;
+  flex-grow: 0;
+  flex-shrink: 1;
+}
+.system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper .eb-main-stat .resource-content input[type=text] {
+  flex-basis: 80px;
+}
+.system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper .eb-main-stat .resource-content span {
+  flex-basis: 17px;
+  flex-grow: 0;
+  flex-shrink: 2;
+}
+.system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper .eb-main-stat label {
+  font-family: "Inter Tight", sans-serif;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
+  font-size: 12px;
+  align-self: flex-start;
+}
+.system-electricbastionland .sheet.item .window-content form .eb-description textarea {
+  background-color: var(--white);
+  border: 1px solid var(--lightgrey);
+  border-radius: 7px;
+  padding: 7px;
+  box-sizing: border-box;
+  min-height: 100px;
+}
+@container sheetContainer (width >= 520px) {
+  .system-electricbastionland .sheet.item .window-content form .eb-main-abilities {
+    display: flex;
+    flex: initial;
+    flex-direction: row;
+    gap: 10px;
+  }
+  .system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  .system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper .eb-main-stat {
+    flex-grow: 1;
+  }
+  .system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper .eb-main-stat.eb-quantity {
+    flex-basis: 60px;
+  }
+  .system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper .eb-main-stat.eb-number-of-uses {
+    flex-basis: 140px;
+  }
+  .system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper .eb-main-stat.eb-bulky {
+    flex-basis: 60px;
+  }
+  .system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper .eb-main-stat.eb-armor {
+    flex-basis: 60px;
+  }
+  .system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper .eb-main-stat.eb-damage-formula {
+    flex-basis: 80px;
+  }
 }
 
 .electricbastionland .app {
@@ -668,4 +945,26 @@
 }
 .electricbastionland .tox .tox-edit-area {
   padding: 0 8px;
+}
+.electricbastionland .grow-wrap {
+  display: grid;
+}
+.electricbastionland .grow-wrap:after {
+  content: attr(data-replicated-value) " ";
+  white-space: pre-wrap;
+  visibility: hidden;
+}
+.electricbastionland .grow-wrap > textarea {
+  resize: none;
+  overflow: hidden;
+}
+.electricbastionland .grow-wrap > textarea, .electricbastionland .grow-wrap::after {
+  border: 1px solid black;
+  padding: 0.5rem;
+  font: inherit;
+  grid-area: 1/1/2/2;
+}
+
+.system-electricbastionland .directory .directory-item.item.document img {
+  display: none;
 }/*# sourceMappingURL=electric-bastionland.css.map */

@@ -363,40 +363,14 @@
 
 .electricbastionland .biography.active{
     padding: 13px 0;
-    
     textarea{
+        background-color: var(--white);
+        border: 1px solid var(--lightgrey);
+        border-radius: 7px;
+        padding: 7px;
+        box-sizing: border-box;
         min-height: 138px;
     }
-
-    .grow-wrap{
-        display: grid;
-    }
-
-    .grow-wrap::after {
-        /* Note the weird space! Needed to preventy jumpy behavior */
-        content: attr(data-replicated-value) " ";
-        /* This is how textarea text behaves */
-        white-space: pre-wrap;
-        /* Hidden from view, clicks, and screen readers */
-        visibility: hidden;
-      }
-      
-      .grow-wrap > textarea {
-        /* You could leave this, but after a user resizes, then it ruins the auto sizing */
-        resize: none;
-        /* Firefox shows scrollbar on growth, you can hide like this. */
-        overflow: hidden;
-      }
-      
-      .grow-wrap > textarea,
-      .grow-wrap::after {
-        /* Identical styling required!! */
-        border: 1px solid black;
-        padding: 0.5rem;
-        font: inherit;
-        /* Place on top of each other */
-        grid-area: 1 / 1 / 2 / 2;
-      }
 }
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -407,20 +381,136 @@
     margin: 7px 0;
     padding: 0;
     overflow-y: hidden;
+
     .item-header {
         font-weight: bold;
     }
+
+    .eb-item-infos{
+        display: flex;
+        flex-direction: row;
+        flex: initial;
+        gap: 5px;
+        flex-basis: 450px;
+    }
+
     .item {
         height: 30px;
         line-height: 24px;
         padding: 3px 0;
-        border-bottom: 1px solid #BBB;
+        border-bottom: 1px solid var(--lightgrey);
+        gap: 0px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+
+
+
+        .eb-item-infos > span{
+
+            input{
+                height: 24px;
+                border-color: transparent;
+                background-color: transparent;
+            }
+
+            &.eb-item-quantity{
+                flex-basis: 23px;
+                text-align: center;
+
+                input{
+                    border: none;
+                    border-radius: 50%;
+                    background: var(--lightgrey);
+                    width: 20px;
+                    height: 20px;
+                    font-size: 11px;
+                    margin-right: 0;
+                }
+
+            }
+
+            &.eb-item-name{
+                flex-grow: 1;
+                flex-basis: 200px;
+                input{
+                    border-color: transparent;
+                    font-weight: 600;
+                    font-size: 13px;
+                    line-height: 13px;
+                    -webkit-font-smoothing: antialiased;
+                    height: 22px;
+                }
+            }
+
+
+            &.eb-item-armor{
+                flex-basis: 70px;
+                display: flex;
+            }
+
+            &.eb-item-damage-formula{
+                flex-basis: 28px;
+                display: flex;
+                flex-shrink: 0;
+                flex-grow: 0;
+
+                input{
+                    text-align: center;
+                    width: 100%;
+                }
+
+                input::placeholder{
+                    font-size: 10px;
+                    letter-spacing: 0.03em;
+                    color: var(--lightgrey);
+                }
+
+                input:not(:placeholder-shown) {
+                    border-color: var(--dark);
+                    font-size: 11px;
+                    font-weight: 600;
+                    -webkit-font-smoothing: antialiased;
+                }
+            }
+
+            &.eb-bulky-status{
+                color: var(--lightgrey);
+                border: 1px solid var(--lightgrey);
+                border-radius: 3px;
+                height: 24px;
+                font-size: 11px;
+                letter-spacing: 0.02em;
+                padding: 0 5px;
+                flex-basis: 50px;
+                flex-grow: 0;
+                flex-shrink: 0;
+                display: none;
+
+                &.active{
+                    border-color: var(--dark);
+                    color: var(--dark);
+                    font-weight: 600;
+                    -webkit-font-smoothing: antialiased;
+                }
+            }
+
+
+        }
+
+        .eb-item-input{
+        }
+
+
         .item-image {
             -webkit-box-flex: 0;
             -ms-flex: 0 0 24px;
             flex: 0 0 24px;
             margin-right: 5px;
         }
+
         img {
             display: block;
         }
@@ -432,8 +522,11 @@
 
         &.eb-new-row{
             justify-content: center;
+            justify-content: center;
+
             .item-controls{
                 text-align: center;
+                justify-content: center;
 
                 .item-create{
                     display: inline-flex;
@@ -442,7 +535,7 @@
                     height: 20px;
                     border-radius: 50%;
                     justify-content: center;
-                    margin: 5px 0 0;
+                    margin: 10px 0 0;
                     background: var(--darkgrey);
                     i{
                         color: var(--white);
@@ -458,12 +551,60 @@
     .item-name {
         margin: 0;
     }
+    
     .item-controls {
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 86px;
-        flex: 0 0 86px;
+        display: flex;
+        flex: initial;
+        gap: 5px;
         text-align: right;
+        flex-basis: 60px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        justify-content: flex-end;
+        font-size: 11px;
+
+        .item-control{
+            color: var(--darkgrey);
+
+            &:hover{
+              color: var(--dark);  
+            }
+        }
+
+        .roll-damage{
+            background: var(--secondcolorbg);
+            color: var(--white);
+            background: var(--secondcolorbg);
+            border: none;
+            outline: 1px solid var(--dark);
+            border-radius: 3px;
+            padding: 1px 6px;
+            color: var(--white);
+            font-family: 'Inter Tight', sans-serif;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            line-height: 13px;
+            font-size: 11px;
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3px;
+            height: 22px;
+            align-self: center;
+            cursor: pointer;
+
+            b{
+                display: none;
+            }
+
+            &:hover{
+                background: var(--secondcolorbghover);
+            }
+
+        }
     }
+
     .item-info {
         margin-left: 4px;
         border-style: solid;
@@ -477,6 +618,53 @@
     .clickable {
         background-color: #669;
         color: white;
+    }
+
+
+
+
+    /////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
+
+    @container sheetContainer (width >= 300px){
+        .item-controls {
+            gap: 10px;
+            flex-basis: 90px;
+        }
+    }
+
+    /////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
+
+    @container sheetContainer (width >= 400px){
+
+        .item .eb-item-infos {
+            gap: 15px;
+
+            & > span.eb-item-damage-formula {
+                flex-basis: 50px;
+            }
+        }
+
+        .item-controls {
+            gap: 10px;
+            flex-basis: 135px;
+
+            .roll-damage b {
+                display: inline-block;
+            }
+        }
+    }
+
+
+    /////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
+
+    @container sheetContainer (width >= 580px){
+
+        .item-controls {
+            flex-basis: 150px;
+        }
     }
 }
 

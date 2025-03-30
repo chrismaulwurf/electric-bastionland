@@ -8,10 +8,10 @@ export class ElectricBastionlandItemSheet extends ItemSheet {
     
     /** @override */
     static get defaultOptions () {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
             classes: ["electricbastionland", "sheet", "item"],
-            width: 420,
-            height: 440
+            width: 540,
+            height: 335
         });
     }
 

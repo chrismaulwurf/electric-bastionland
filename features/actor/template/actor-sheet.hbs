@@ -179,7 +179,6 @@
             data-group="primary"
             data-tab="description">
 
-
             <div class="grow-wrap" data-replicated-value="{{systemData.biography}}">
                 <textarea 
                     data-field="systemData.biography" 
@@ -188,8 +187,6 @@
                     onInput="this.parentNode.dataset.replicatedValue = this.value"
                 >{{systemData.biography}}</textarea>
             </div>
-
-
         </div>
 
         {{!-- Owned Items Tab --}}
@@ -201,40 +198,59 @@
                
                 {{#each actor.items as |item id|}}
                  
-                    <li
-                        class="item flexrow"
-                        data-item-id="{{item.id}}">
-                        <span>
-                            <span class="item-name item-edit">
-                                {{item.system.quantity}}
-                                {{#boldIf item.system.equipped}}
-                                {{item.name}}
-                                {{/boldIf}}
+                    <li class="item flexrow" data-item-id="{{item.id}}">
+                        <span class="eb-item-infos">
+
+                            <span class="eb-item-quantity">
+                                <input 
+                                    class="eb-item-input inline-item-edit"
+                                    data-item-id="{{id}}"
+                                    data-field="system.quantity"
+                                    type="number"
+                                    value="{{item.system.quantity}}"
+                                    placeholder=""
+                                    data-dtype="Number"
+                                />
                             </span>
-                            {{#if item.system.bulky}}
-                            <span class="item-info">BULKY</span>
-                            {{/if}}
-                            {{#if item.system.blast}}
-                            <span class="item-info">BLAST</span>
-                            {{/if}}
-                            {{#if item.system.armor}}
-                            <span class="item-info">Armor {{item.system.armor}}</span>
-                            {{/if}}
-                            {{#if item.system.damageFormula}}
-                            <span class="item-info">{{item.system.damageFormula}} damage</span>
-                            {{/if}}
+
+                            <span class="eb-item-name">
+                                <input 
+                                    class="eb-item-input inline-item-edit"
+                                    data-item-id="{{id}}"
+                                    data-field="name"
+                                    type="text"
+                                    value="{{item.name}}"
+                                    placeholder="{{localize 'EB.Item.Name'}}"
+                                />
+                            </span>
+
+                            <span class="eb-bulky-status{{#if item.system.bulky}} active{{/if}}">
+                                {{localize 'EB.Item.Bulky'}}
+                            </span>
+
+                            <span class="eb-item-damage-formula">
+                                <input 
+                                    class="eb-item-input inline-item-edit"
+                                    data-item-id="{{id}}"
+                                    data-field="system.damageFormula"
+                                    type="text"
+                                    value="{{item.system.damageFormula}}"
+                                    placeholder="{{localize 'EB.Item.DamagePlaceholder'}}"
+                                />
+                            </span>
                         </span>
+
+
+
                         <div class="item-controls">
-                            {{#if item.system.equipped}}
                             {{#if item.system.damageFormula}}
                             <span
-                                class="item-button rollable"
-                                data-label="damage with {{item.name}}"
+                                class="item-button roll-damage"
+                                data-weapon="{{item.name}}"
                                 data-roll="{{item.system.damageFormula}}"
                                 title="Roll Damage">
-                                <i class="fas fa-dice-d20"></i>
+                                <b>{{localize 'EB.Item.Damage'}}</b> <i class="fas fa-dice-d20"></i>
                             </span>
-                            {{/if}}
                             {{/if}}
                             <a
                                 class="item-control item-edit"
@@ -262,13 +278,6 @@
 			<button
                 type="button"
                 title="Rest"
-                class="rest">{{localize 'EB.Sheet.MakeDamage'}}
-			</button>
-		</span>
-        <span>
-			<button
-                type="button"
-                title="Rest"
                 {{#if systemData.deprived}}
                 disabled="true"
                 {{/if}}
@@ -286,7 +295,7 @@
 			<button
                 type="button"
                 title="Luck"
-                class="luck rollable"
+                class="luck"
                 data-roll="d6"
                 data-label="Luck">{{localize 'EB.Sheet.Luck'}}
 			</button>

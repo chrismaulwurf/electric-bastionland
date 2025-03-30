@@ -35,6 +35,12 @@
         &.ebr-intro{
             padding-top: 6px;
             margin-top: 5px;
+
+            i{
+                font-style: normal;
+                font-size: 11px;
+                color: var(--middlegrey);
+            }
         }
 
         &.ebr-result{
@@ -60,6 +66,24 @@
     }
 
     &[data-is-success="false"] > div.ebr-result{
+        background: var(--color-red);
+        color: var(--white);
+    }
+
+
+
+
+    &[data-success-level="2"] > div.ebr-result{
+        background: var(--color-green);
+        color: var(--white);
+    }
+
+    &[data-success-level="1"] > div.ebr-result{
+        background: var(--color-orange);
+        color: var(--white);
+    }
+
+    &[data-success-level="0"] > div.ebr-result{
         background: var(--color-red);
         color: var(--white);
     }

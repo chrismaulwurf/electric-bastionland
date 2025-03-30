@@ -16,5 +16,21 @@
     "EB.Sheet.Strength": "Strength",
     "EB.Sheet.Charisma": "Charisma",
     "EB.Sheet.Dexterity": "Dexterity",
-    "EB.Sheet.Roll": "Roll"
+    "EB.Sheet.Roll": "Roll",
+    "EB.Item.Name": "Name",
+    "EB.Item.Bulky": "Bulky",
+    "EB.Item.Quantity": "Quantity",
+    "EB.Item.NumberOfUses": "Number of uses",
+    "EB.Item.Armor": "Armor",
+    "EB.Item.Damage": "Damage",
+    "EB.Item.DamagePlaceholder": "e.g. 1D6",
+    "EB.Item.Description": "Description",
+    "EB.Chat.RollOn": "Roll on",
+    "EB.Chat.CharacterStat": "Character target",
+    "EB.Chat.RollResult": "Roll result",
+    "EB.Chat.Success": "Success",
+    "EB.Chat.Luck": "Luck",
+    "EB.Chat.SuccessFull": "Success",
+    "EB.Chat.SuccessComplications": "Success with complications",
+    "EB.Chat.Failure": "Failure"
 }

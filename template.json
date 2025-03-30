@@ -47,9 +47,7 @@
       "quantity": 1,
       "armor": 0,
       "damageFormula": "",
-      "equipped": false,
       "bulky": false,
-      "blast": false,   
       "numberOfUses": 0
     }
   }

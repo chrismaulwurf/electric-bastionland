@@ -3,7 +3,9 @@
  */
 export class ElectricBastionlandActorSheet extends ActorSheet {
     
-    CHAT_TEMPLATE = "systems/electricbastionland/features/chat/template/roll.hbs"
+    CHAT_TEMPLATE = "systems/electricbastionland/features/chat/template/roll.hbs";
+    CHAT_TEMPLATE_LUCK = "systems/electricbastionland/features/chat/template/roll-luck.hbs";
+    CHAT_TEMPLATE_DAMAGE = "systems/electricbastionland/features/chat/template/roll-damage.hbs";
 
     ///////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////
@@ -52,9 +54,6 @@ export class ElectricBastionlandActorSheet extends ActorSheet {
         // Everything below here is only needed if the sheet is editable
         if ( !this.options.editable ) return;
 
-        // Handle rollable items and attributes
-        html.find(".rollable").on("click", this._onItemRoll.bind(this));
-
         // Update Inventory Item
         html.find('.item-edit').click(ev => {
             const li = $(ev.currentTarget).parents(".item")[0];
@@ -79,28 +78,25 @@ export class ElectricBastionlandActorSheet extends ActorSheet {
             }, false);
         });
 
+        // Inline change item
+        html.find('.inline-item-edit').change(this._onItemInlineEdit.bind(this));
+
         // Rest restores HP
         html.find('.rest')
             .click(async ev => {
-                // Someone DEPRIVED of a crucial need (e.g.
-                // food,water or warmth) cannot benefit from RESTS
-                if (!this.actor.data.data.deprived) {
-                    await this.actor.update({'data.hp.value': this.actor.data.data.hp.max});
-                }
+                await this.actor.update({'system.hp.value': this.actor.system.hp.max});
             });
 
         html.find('.restore')
             .click(async ev => {
-                await this.actor.update({'data.abilities.STR.value': this.actor.data.data.abilities.STR.max});
-                await this.actor.update({'data.abilities.DEX.value': this.actor.data.data.abilities.DEX.max});
-                await this.actor.update({'data.abilities.CHA.value': this.actor.data.data.abilities.CHA.max});
+                await this.actor.update({'system.abilities.STR.value': this.actor.system.abilities.STR.max});
+                await this.actor.update({'system.abilities.DEX.value': this.actor.system.abilities.DEX.max});
+                await this.actor.update({'system.abilities.CHA.value': this.actor.system.abilities.CHA.max});
             });
 
-        html.find('.luck')
-            .click(ev => {
-                let roll = new Roll('1d6');
-                roll.roll();
-            });
+            html.find(".rollable").on("click", this._rollStat.bind(this));
+            html.find(".luck").on("click", this._rollForLuck.bind(this));
+            html.find(".roll-damage").on("click", this._rollDamge.bind(this));
     }
 
     ///////////////////////////////////////////////////////////////////////////////////
@@ -133,6 +129,21 @@ export class ElectricBastionlandActorSheet extends ActorSheet {
         return this.actor.createEmbeddedDocuments("Item", [itemData]);
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////
+    
+    /**
+     * @param {Event} event   The originating click event
+     * @private
+     */
+    _onItemInlineEdit (event) {
+        event.preventDefault();
+        let element = event.currentTarget;
+        let itemId = element.dataset.itemId;
+        let item = this.actor.items.contents[itemId];
+        let field = element.dataset.field;
+        return item.update({ [field]: element.value });
+    }
 
 
     ///////////////////////////////////////////////////////////////////////////////////
@@ -142,7 +153,7 @@ export class ElectricBastionlandActorSheet extends ActorSheet {
      * @param {Event} event   The originating click event
      * @private
      */
-    async _onItemRoll (event) {
+    async _rollStat (event) {
         event.preventDefault();
         const element = event.currentTarget;
         const dataset = element.dataset;
@@ -173,6 +184,82 @@ export class ElectricBastionlandActorSheet extends ActorSheet {
 
         }
     }
+
+
+    ///////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////
+    /**
+     * Handle clickable rolls.
+     * @param {Event} event   The originating click event
+     * @private
+     */
+    async _rollForLuck (event) {
+
+        event.preventDefault();
+
+        let r = new Roll('1D6', this.actor.system);
+        await r.evaluate();
+
+        let data = {
+            abilityName: game.i18n.localize("EB.Chat.Luck"),
+            rolledValue: r.total
+        };
+
+        data.resultMessage = data.rolledValue <= 1 ? game.i18n.localize("EB.Chat.Failure") : game.i18n.localize("EB.Chat.SuccessComplications");
+        data.resultMessage = data.rolledValue >= 4 ? game.i18n.localize("EB.Chat.SuccessFull") : data.resultMessage;
+
+        data.successLevel = data.rolledValue <= 1 ? 0 : 1;
+        data.successLevel = data.rolledValue >= 4 ? 2 : data.successLevel;
+
+        let resultContent = await renderTemplate(this.CHAT_TEMPLATE_LUCK, data);
+
+        r.toMessage({
+            speaker: ChatMessage.getSpeaker({actor: this.actor}),
+            content: resultContent
+        });
+
+    }
+
+
+    ///////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////
+    /**
+     * Handle clickable rolls.
+     * @param {Event} event   The originating click event
+     * @private
+     */
+    async _rollDamge (event) {
+
+        event.preventDefault();
+        const element = event.currentTarget;
+        const dataset = element.dataset;
+
+        if (dataset.roll) {
+            let isDeprived = this.actor.system.deprived;
+            let roll = isDeprived ? "1D4" : dataset.roll;
+            let weapon = dataset.weapon;
+
+            let r = new Roll(roll, this.actor.system);
+            await r.evaluate();
+
+            let data = {
+                abilityName: game.i18n.localize("EB.Item.Damage"),
+                roll: roll,
+                weapon: weapon,
+                isDeprived: isDeprived,
+                rolledValue: r.total
+            };
+
+            let resultContent = await renderTemplate(this.CHAT_TEMPLATE_DAMAGE, data);
+
+            r.toMessage({
+                speaker: ChatMessage.getSpeaker({actor: this.actor}),
+                content: resultContent
+            });
+
+        }
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////
 

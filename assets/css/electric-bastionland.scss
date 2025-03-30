@@ -1,4 +1,4 @@
-@import 'colors', 'fonts', 'defaults', 'chat', 'character-sheet';
+@import 'colors', 'fonts', 'defaults', 'chat', 'character-sheet', 'item-sheet';
 
 .electricbastionland{
 
@@ -32,5 +32,36 @@
         .tox-edit-area {
             padding: 0 8px;
         }
+    }
+
+    .grow-wrap{
+        display: grid;
+
+        &:after{
+            content: attr(data-replicated-value) " ";
+            white-space: pre-wrap;
+            visibility: hidden;
+        }
+
+        & > textarea {
+            resize: none;
+            overflow: hidden;
+        }
+
+        & > textarea,
+        &::after {
+          border: 1px solid black;
+          padding: 0.5rem;
+          font: inherit;
+          grid-area: 1 / 1 / 2 / 2;
+        }
+
+
+    }
+}
+
+.system-electricbastionland{
+    .directory .directory-item.item.document img {
+        display: none;
     }
 }
