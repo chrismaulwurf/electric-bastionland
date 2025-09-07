@@ -53,6 +53,16 @@ Hooks.once('init', async function () {
 // Updates Token name when editing the name of a character
 Hooks.on("updateActor", (actor,changes,diff,userId) => {
     if (game.user.id==userId && changes.name!==undefined){
+    
+
+        if(actor.system.playerName !== ""){
+            actor.update({"prototypeToken.actorLink":true});
+            actor.update({"prototypeToken.disposition":1});            
+        }
+
         actor.update({"prototypeToken.name":changes.name});
+        actor.update({"prototypeToken.width":2});
+        actor.update({"prototypeToken.height":2});
+        actor.update({"prototypeToken.displayName":50});
      }
 });

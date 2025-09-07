@@ -26,6 +26,7 @@
     "EB.Item.DamagePlaceholder": "z.B. 1D6",
     "EB.Item.Description": "Beschreibung",
     "EB.Chat.RollOn": "Wurf auf",
+    "EB.Chat.Weapon": "Waffe",
     "EB.Chat.CharacterStat": "Character-Wert",
     "EB.Chat.RollResult": "Würfelergebnis",
     "EB.Chat.Success": "Erfolg",

@@ -16,23 +16,23 @@
       "attributes": {},
       "groups": {},
       "hp": {
-        "value": 10,
-        "max": 10
+        "value": 0,
+        "max": 0
       },
       "abilities": {
         "STR": {
-          "value": 10,
-          "max": 10,
+          "value": 0,
+          "max": 0,
           "nameFull": "Stärke"
         },
         "DEX": {
-          "value": 10,
-          "max": 10,
+          "value": 0,
+          "max": 0,
           "nameFull": "Geschicklichkeit"
         },
         "CHA": {
-          "value": 10,
-          "max": 10,
+          "value": 0,
+          "max": 0,
           "nameFull": "Charisma"
         }
       }

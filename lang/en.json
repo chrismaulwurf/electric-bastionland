@@ -26,6 +26,7 @@
     "EB.Item.DamagePlaceholder": "e.g. 1D6",
     "EB.Item.Description": "Description",
     "EB.Chat.RollOn": "Roll on",
+    "EB.Chat.Weapon": "Weapon",
     "EB.Chat.CharacterStat": "Character target",
     "EB.Chat.RollResult": "Roll result",
     "EB.Chat.Success": "Success",

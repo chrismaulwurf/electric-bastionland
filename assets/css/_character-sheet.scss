@@ -2,6 +2,12 @@
     container-name: sheetContainer;
     container-type: inline-size;
 
+    &.actor .window-content{
+        background: var(--maincolorbg);
+        padding: 20px;
+        background-image: none;
+    }
+
     /////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////
 
@@ -39,7 +45,7 @@
         .eb-infos-wrapper{
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px;
             box-sizing: border-box;
             padding: 10px;
 
@@ -48,10 +54,23 @@
                 flex-direction: column;
                 gap: 0px;
 
+                .eb-player-name{
+                    color: var(--maincolorbgdarker);
+                    padding: 0 5px;
+                    font-size: 10px;
+                    width: 100%;
+                    height: 15px;
+                    text-transform: uppercase;
+                    letter-spacing: 0.1em;
+                    &:empty{
+                        height: 9px;
+                    }
+                }
+
                 h1.charname {
-                    height: 50px;
+                    height: 38px;
                     padding: 0px;
-                    margin: 5px 0 0;
+                    margin: 0;
                     border-bottom: 0;
                     background-color: transparent;
                     color: var(--dark);
@@ -342,6 +361,10 @@
 
             }
         }
+
+        .eb-sheet-action-buttons{
+            flex-direction: row;
+        }
     }
 
     /////////////////////////////////////////////////////////////////////////////
@@ -350,10 +373,6 @@
     @container sheetContainer (width >= 580px){
         .sheet-header .profile-img{
             display: block;
-        }
-
-        .eb-sheet-action-buttons{
-            flex-direction: row;
         }
     }
 }

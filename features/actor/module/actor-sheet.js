@@ -36,12 +36,53 @@ export class ElectricBastionlandActorSheet extends ActorSheet {
     
     /** @override */
     getData () {
-        const context = super.getData();
+        let context = super.getData();
         context.data.system.abilities.CHA.fullName = game.i18n.localize("EB.Sheet.Charisma");
         context.data.system.abilities.DEX.fullName = game.i18n.localize("EB.Sheet.Dexterity");
         context.data.system.abilities.STR.fullName = game.i18n.localize("EB.Sheet.Strength");
-        context.systemData = context.data.system;    
+        //..............................
+        this._getOwnerData(context);
+        //..............................
+        context.systemData = context.data.system;   
+        //..............................
         return context;
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////
+    
+    /** @override */
+    async _getOwnerData (context) {
+        if(typeof context.data.ownership === 'object'){
+            for(let ownerUserId in context.data.ownership){
+                if(ownerUserId !== 'default' && context.data.ownership[ownerUserId] >= 3){
+                    let user = this._getPlayerById(ownerUserId);
+                    if(user !== null){
+                        let playerName = user === null ? "" : user?.name;
+                        if(context.actor.system.playerName !== playerName){
+                            await this.actor.update({'system.playerName': playerName});
+                        }
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////
+    
+    /** @override */
+    _getPlayerById (searchId) {
+        let foundUser = null;
+            for(let userIndex in game.users.players){
+                let user = game.users.players[userIndex];
+                if(user.id == searchId){
+                    foundUser = user;
+                    break;
+                }
+            }
+        return foundUser;
     }
 
     ///////////////////////////////////////////////////////////////////////////////////

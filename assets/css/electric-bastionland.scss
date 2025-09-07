@@ -1,9 +1,22 @@
 @import 'colors', 'fonts', 'defaults', 'chat', 'character-sheet', 'item-sheet';
 
-.electricbastionland{
+.system-electricbastionland{
+
+    #sidebar{
+        background: var(--app-ui-bg);
+    }
+
+    .scenes-sidebar {
+        --sidebar-scene-height: 40px;
+
+        .scene h3 {
+            line-height: calc(var(--sidebar-scene-height) - 5px);
+            font-size: 1.2em;
+        }
+    }
 
     .app {
-        background: var(--darkgrey);
+        background: var(--app-ui-bg);
         border-radius: 0px;
     }
 
@@ -17,12 +30,6 @@
         font-weight: bold;
         border-bottom: none;
         margin: 0;
-    }
-
-    .window-content {
-        padding: 20px;
-        background-color: var(--maincolorbg);
-        background-image: none;
     }
 
     .tox{
@@ -58,9 +65,7 @@
 
 
     }
-}
 
-.system-electricbastionland{
     .directory .directory-item.item.document img {
         display: none;
     }
