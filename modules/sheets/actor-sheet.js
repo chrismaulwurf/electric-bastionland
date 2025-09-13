@@ -171,7 +171,6 @@ export class ElectricBastionlandActorSheet extends api.HandlebarsApplicationMixi
     // getOwnerData
 
     async _getOwnerData(context) {
-        console.log("### ElectricBastionland | Getting Owner Data", context);
         if (typeof context.actor.ownership === "object") {
             for (let ownerUserId in context.actor.ownership) {
                 if (ownerUserId !== "default" && context.actor.ownership[ownerUserId] >= 3) {
