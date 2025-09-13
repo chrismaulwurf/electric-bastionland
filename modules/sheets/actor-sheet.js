@@ -43,7 +43,8 @@ export class ElectricBastionlandActorSheet extends api.HandlebarsApplicationMixi
         },
         window: {
             title: "Electric Bastionland Actor",
-            icon: "fas fa-user"
+            icon: "fas fa-user",
+            resizable: true
         },
         position: {
             width: 630,
@@ -334,6 +335,9 @@ export class ElectricBastionlandActorSheet extends api.HandlebarsApplicationMixi
             const li = $(ev.currentTarget).parents(".item")[0];
             this.actor.deleteEmbeddedDocuments("Item", [li.dataset.itemId]);
         });
+
+
+
     }
 
 
