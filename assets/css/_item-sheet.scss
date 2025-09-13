@@ -1,7 +1,7 @@
-.system-electricbastionland .sheet.item{
+.system-electricbastionland .sheet.item {
 
-    .window-content{
-        background: var(--maincolorbg);
+    .window-content {
+
         padding: 20px;
         background-image: none;
     }
@@ -10,9 +10,9 @@
     /////////////////////////////////////////////////////////////////////////////
 
     .window-content form {
-        background-color: var(--white);
+        background-color: var(--eb-c-white);
         border-radius: 10px;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
         padding: 20px;
         box-sizing: border-box;
         flex: initial;
@@ -28,6 +28,7 @@
             border-bottom: 0;
             background-color: transparent;
             color: var(--dark);
+
             input {
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -38,118 +39,124 @@
                 border: 0px;
                 background-color: transparent;
                 color: var(--dark);
+
                 &::placeholder {
-                    color: var(--middlegrey);
-                }    
+                    color: var(--eb-c-accent);
+                }
             }
-        }    
+        }
 
         /////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////////////////////////////////////////////////
-        
-        .eb-main-stat-wrapper{
+
+        .eb-main-stat-wrapper {
             display: flex;
             flex-direction: column;
             gap: 10px;
             margin: 10px 0 15px;
 
-            .eb-main-stat{
-                border: 1px solid var(--lightgrey);
+            .eb-main-stat {
+                border: 1px solid var(--eb-c-lightgrey);
                 border-radius: 7px;
                 padding: 7px;
                 box-sizing: border-box;
 
-                .resource-content{
+                .resource-content {
                     align-items: center;
                     justify-content: flex-start;
-                    
-                    input{
+
+                    input {
                         flex-basis: 30px;
                         flex-grow: 0;
                         flex-shrink: 1;
 
-                        &[type="text"]{
+                        &[type="text"] {
                             flex-basis: 80px;
                         }
                     }
-                    
-                    span{
+
+                    span {
                         flex-basis: 17px;
                         flex-grow: 0;
                         flex-shrink: 2;
                     }
                 }
 
-                label{
-                    font-family: 'Inter Tight', sans-serif;
+                label {
+                    font-family: var(--font-body);
                     letter-spacing: 0.02em;
                     font-weight: 600;
                     display: block;
                     margin-bottom: 4px;
                     font-size: 12px;
                     align-self: flex-start;
+
                 }
             }
-        }
 
-        /////////////////////////////////////////////////////////////////////////////
-        /////////////////////////////////////////////////////////////////////////////
+            /////////////////////////////////////////////////////////////////////////////
+            /////////////////////////////////////////////////////////////////////////////
 
-        .eb-description{
-            textarea{
-                background-color: var(--white);
-                border: 1px solid var(--lightgrey);
-                border-radius: 7px;
-                padding: 7px;
-                box-sizing: border-box;
-                min-height: 100px;
-            }
-        }
-
-        /////////////////////////////////////////////////////////////////////////////
-        /////////////////////////////////////////////////////////////////////////////
-
-        @container sheetContainer (width >= 520px){
-
-            .eb-main-abilities{
-                display: flex;
-                flex: initial;
-                flex-direction: row;
-                gap: 10px;
+            .eb-description {
+                textarea {
+                    background-color: var(--eb-c-white);
+                    border: 1px solid var(--eb-c-lightgrey);
+                    border-radius: 7px;
+                    padding: 7px;
+                    box-sizing: border-box;
+                    min-height: 100px;
+                }
             }
 
-            .eb-main-stat-wrapper{
-                display: flex;
-                flex-direction: row;
-                gap: 10px;
+            /////////////////////////////////////////////////////////////////////////////
+            /////////////////////////////////////////////////////////////////////////////
 
-                .eb-main-stat{
-                    flex-grow: 1;
+            @container sheetContainer (width >=520px) {
 
-                    &.eb-quantity {
-                        flex-basis: 60px;
+                .eb-main-abilities {
+                    display: flex;
+                    flex: initial;
+                    flex-direction: row;
+                    gap: 10px;
+                }
+
+                .eb-main-stat-wrapper {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+
+                    .eb-main-stat {
+                        flex-grow: 1;
+
+                        &.eb-quantity {
+                            flex-basis: 60px;
+                        }
+
+                        &.eb-number-of-uses {
+                            flex-basis: 140px;
+                        }
+
+                        &.eb-bulky {
+                            flex-basis: 60px;
+                        }
+
+                        &.eb-armor {
+                            flex-basis: 60px;
+                        }
+
+                        &.eb-damage-formula {
+                            flex-basis: 80px;
+                        }
                     }
-                    &.eb-number-of-uses{
-                        flex-basis: 140px;
-                    }
-                    &.eb-bulky{
-                        flex-basis: 60px;
-                    }
-                    &.eb-armor{
-                        flex-basis: 60px;
-                    }
-                    &.eb-damage-formula{
-                        flex-basis: 80px;
-                    }
+
                 }
 
             }
 
+
         }
 
-
+        /////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////
     }
-
-    /////////////////////////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////////////////////
 }

@@ -1,89 +1,61 @@
 <form class="{{cssClass}}" autocomplete="off">
 
-    <h1 class="eb-item-name">
-        <input 
-            name="name"
-            type="text"
-            value="{{item.name}}"
-            placeholder="{{localize 'EB.Item.Name'}}"
-        />
+    {{log this}}
+    <h1 class="eb-item-n">
+        <input name="item" type="text" value="{{item.name}}" placeholder="{{localize 'EB.Item.Name'}}" />
     </h1>
 
 
     {{!-- MAIN STATS --}}
     <div class="eb-main-stat-wrapper">
 
-        {{!-- QUANTITY --}} 
+        {{!-- QUANTITY --}}
         <div class="eb-main-stat eb-quantity resource flexrow flex-group-center">
             <div class="flexcol">
                 <label for="data.quantity" class="resource-label">{{localize 'EB.Item.Quantity'}}</label>
                 <div class="resource-content flexrow flex-center flex-between">
-                    <input
-                        type="number"
-                        name="system.quantity"
-                        value="{{systemData.quantity}}"
-                        data-dtype="Number"
-                    /> 
+                    <input type="number" name="system.quantity" value="{{systemData.quantity}}" data-dtype="Number" />
                 </div>
             </div>
         </div>
 
-        {{!-- NUMBER OF USES --}} 
+        {{!-- NUMBER OF USES --}}
         <div class="eb-main-stat eb-number-of-uses resource flexrow flex-group-center">
             <div class="flexcol">
                 <label for="data.numberOfUses" class="resource-label">{{localize 'EB.Item.NumberOfUses'}}</label>
                 <div class="resource-content flexrow flex-center flex-between">
-                    <input
-                        type="number"
-                        name="system.numberOfUses"
-                        value="{{systemData.numberOfUses}}"
-                        data-dtype="Number"
-                    /> 
+                    <input type="number" name="system.numberOfUses" value="{{systemData.numberOfUses}}"
+                        data-dtype="Number" />
                 </div>
             </div>
         </div>
 
-        {{!-- BULKY --}} 
+        {{!-- BULKY --}}
         <div class="eb-main-stat eb-bulky resource flexrow flex-group-center">
             <div class="flexcol">
                 <label class="resource-label">{{localize 'EB.Item.Bulky'}}</label>
-                <input
-                    class="checkbox-block"
-                    type="checkbox"
-                    {{checked systemData.bulky}}
-                    name="system.bulky"
-                    value="{{systemData.bulky}}"
-                    data-dtype="Boolean"/>
+                <input class="checkbox-block" type="checkbox" {{checked systemData.bulky}} name="system.bulky"
+                    value="{{systemData.bulky}}" data-dtype="Boolean" />
             </div>
         </div>
 
-        {{!-- ARMOR --}} 
+        {{!-- ARMOR --}}
         <div class="eb-main-stat eb-armor resource flexrow flex-group-center">
             <div class="flexcol">
                 <label for="data.armor" class="resource-label">{{localize 'EB.Item.Armor'}}</label>
                 <div class="resource-content flexrow flex-center flex-between">
-                    <input
-                        type="number"
-                        name="system.armor"
-                        value="{{systemData.armor}}"
-                        data-dtype="Number"
-                    /> 
+                    <input type="number" name="system.armor" value="{{systemData.armor}}" data-dtype="Number" />
                 </div>
             </div>
         </div>
 
-        {{!-- DAMAGE --}} 
+        {{!-- DAMAGE --}}
         <div class="eb-main-stat eb-damage-formula resource flexrow flex-group-center">
             <div class="flexcol">
                 <label for="data.damageFormula" class="resource-label">{{localize 'EB.Item.Damage'}}</label>
                 <div class="resource-content flexrow flex-center flex-between">
-                    <input
-                        type="text"
-                        name="system.damageFormula"
-                        value="{{systemData.damageFormula}}"
-                        data-dtype="String"
-                        placeholder="{{localize 'EB.Item.DamagePlaceholder'}}"
-                    /> 
+                    <input type="text" name="system.damageFormula" value="{{systemData.damageFormula}}"
+                        data-dtype="String" placeholder="{{localize 'EB.Item.DamagePlaceholder'}}" />
                 </div>
             </div>
         </div>
@@ -95,13 +67,9 @@
     {{!-- DESCRIPTION --}}
     <div class="eb-description">
         <div class="grow-wrap" data-replicated-value="{{systemData.description}}">
-            <textarea 
-                data-field="systemData.description" 
-                id="description" 
-                name="system.description"
+            <textarea data-field="systemData.description" id="description" name="system.description"
                 onInput="this.parentNode.dataset.replicatedValue = this.value"
-                placeholder="{{localize 'EB.Item.Description'}}"
-            >{{systemData.description}}</textarea>
+                placeholder="{{localize 'EB.Item.Description'}}">{{systemData.description}}</textarea>
         </div>
     </div>
 

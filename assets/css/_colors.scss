@@ -1,20 +1,38 @@
-:root {
-  --maincolorbg: #e4a802;
-  --maincolorbgdarker: #b88700;
-  --maincolor: #a77a00;
-  --secondcolorbg: #017890;
-  --secondcolorbghover: #005263;
-  --secondcolor: #212829;
-  --white: #ffffff;
-  --dark: #000009;
-  --darkgrey: #39394f;
-  --app-ui-bg: rgba(30,30,35,0.97);
-  --grey: #4e5758;
-  --lightgrey: #d9d9d9;
-  --lightgreyalternate: #bfbfbf;
-  --middlegrey: #8e9798;
-  --color-shadow-primary: transparent;
-  --color-red: #cc0050;
-  --color-orange: #ec8a00;
-  --color-green: #007e63;
-  }
+.system-electricbastionland {
+
+    // colors
+    --eb-c-surface: linear-gradient(127deg, #5CC8B0 0%, #44BDD5 100%);
+    --eb-c-surfcace-button: linear-gradient(-4.051deg, #743D90 0%, #B633B4 100%);
+    --eb-c-surfcace-button-hover: linear-gradient(-4.051deg, #3f1554 0%, #790f77 100%);
+    --eb-c-accent: #798ca4;
+    --eb-c-dark: #202060;
+    --eb-c-white: #ffffff;
+    --eb-c-lightgrey: #DFEBE9;
+    --eb-c-lightgrey-border: #99aabb;
+    --eb-c-red: #cc0050;
+    --eb-c-orange: #ec8a00;
+    --eb-c-green: #007e63;
+    --color-shadow-primary: transparent;
+
+    .sheet {
+
+        --color-scrollbar: #30676e;
+        --color-text-primary: var(--eb-c-dark);
+
+
+        form,
+        #electricbastionland-actor,
+        #electricbastionland-item {
+
+            input,
+            textarea {
+                --input-background-color: var(--eb-c-lightgrey);
+                --input-text-color: var(--eb-c-dark);
+                --input-border-color: var(--eb-c-lightgrey-border);
+                --input-focus-outline-color: var(--eb-c-accent);
+                --input-placeholder-color: var(--eb-c-accent);
+                --checkbox-background-color: var(--eb-c-lightgrey);
+            }
+        }
+    }
+}

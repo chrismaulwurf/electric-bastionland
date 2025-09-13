@@ -20,7 +20,7 @@
         "max": 0
       },
       "abilities": {
-        "STR": {
+        "STAER": {
           "value": 0,
           "max": 0,
           "nameFull": "Stärke"

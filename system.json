@@ -1,4 +1,5 @@
 {
+  "id": "electricbastionland",
   "title": "Electric Bastionland",
   "description": "FoundryVTT System - Electric Bastionland",
   "authors": [
@@ -7,12 +8,11 @@
       "flags": {}
     }
   ],
-  "url": "https://github.com/chrismaulwurf/electric-bastionland",
   "license": "LICENSE",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "compatibility": {
-    "minimum": "12",
-    "verified": "12"
+    "minimum": "13",
+    "verified": "13"
   },
   "esmodules": [
     "electric-bastionland.js"
@@ -22,15 +22,10 @@
   ],
   "languages": [
     {
-      "lang": "deu",
-      "name": "Deutsch",
-      "path": "lang/de.json"
-    }, 
-    {
       "lang": "de",
       "name": "Deutsch",
       "path": "lang/de.json"
-    }, 
+    },
     {
       "lang": "en",
       "name": "English",
@@ -38,12 +33,12 @@
     }
   ],
   "relationships": [],
-  "manifest": "https://github.com/chrismaulwurf/electric-bastionland/master/system.json",
-  "download": "https://github.com/chrismaulwurf/electric-bastionland/download/1.0.0.zip",
   "grid": {
     "distance": 1,
     "units": "m"
   },
   "primaryTokenAttribute": "hp",
-  "id": "electricbastionland"
+  "url": "https://github.com/chrismaulwurf/electric-bastionland",
+  "manifest": "https://github.com/chrismaulwurf/electric-bastionland/master/system.json",
+  "download": "https://github.com/chrismaulwurf/electric-bastionland/download/1.0.0.zip"
 }

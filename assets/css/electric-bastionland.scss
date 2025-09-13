@@ -1,8 +1,53 @@
-@import 'colors', 'fonts', 'defaults', 'chat', 'character-sheet', 'item-sheet';
+@use 'colors';
+@use 'fonts';
+@use 'defaults';
+@use 'character-sheet';
+@use 'item-sheet';
 
-.system-electricbastionland{
+.system-electricbastionland {
+    .sheet {
+        --font-body: 'Oxanium', sans-serif;
+        --font-h1-size: 2rem;
+        --eb-space-xs: 8px;
+        --eb-space-s: 12px;
+        --eb-space-m: 16px;
+        --eb-space-l: 20px;
+        --eb-space-xl: 24px;
 
-    #sidebar{
+        --eb-form-minsize: 300px;
+        --eb-form-maxsize: 630px;
+
+        overflow: auto;
+
+        .window-content {
+            background: var(--eb-c-surface);
+            padding: 0;
+        }
+
+        form,
+        #electricbastionland-actor,
+        #electricbastionland-item {
+
+            min-width: var(--eb-form-minsize);
+            max-width: var(--eb-form-maxsize);
+            margin: auto;
+            padding: var(--eb-space-xl);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: var(--eb-space-m);
+
+            input,
+            textarea {
+                --input-box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+                --input-height: 24px;
+                --checkbox-size: 18px;
+            }
+        }
+    }
+
+
+    #sidebar {
         background: var(--app-ui-bg);
     }
 
@@ -21,46 +66,55 @@
     }
 
     .item-form {
-        font-family: 'Inter', sans-serif;
+        font-family: var(--font-body);
         font-size: 8pt;
     }
-    
-    h1, h2, h3, h4, .title-font {
-        font-family: 'Inter Tight', sans-serif;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .title-font {
+        font-family: var(--font-body);
         font-weight: bold;
         border-bottom: none;
         margin: 0;
     }
 
-    .tox{
+    .tox {
         .tox-editor-container {
             background: #fff;
         }
+
         .tox-edit-area {
             padding: 0 8px;
         }
     }
 
-    .grow-wrap{
+    .grow-wrap {
         display: grid;
 
-        &:after{
+        &:after {
             content: attr(data-replicated-value) " ";
             white-space: pre-wrap;
             visibility: hidden;
         }
 
-        & > textarea {
+        &>textarea {
             resize: none;
             overflow: hidden;
+            min-height: 53px;
+            border: 1px solid #99aabb;
         }
 
-        & > textarea,
+        &>textarea,
         &::after {
-          border: 1px solid black;
-          padding: 0.5rem;
-          font: inherit;
-          grid-area: 1 / 1 / 2 / 2;
+            color: #202060;
+            background: #DFEBE9;
+            padding: 0.5rem;
+            font: inherit;
+            box-shadow: var(--input-box-shadow);
+            grid-area: 1 / 1 / 2 / 2;
         }
 
 

@@ -1,16 +1,14 @@
-
-
-.chat-message{
+.chat-message {
     background-image: none;
-    background-color: var(--white);
+    background-color: var(--eb-c-white);
     margin: 12px 10px;
     border: none;
-    box-shadow: 0 4px 5px -2px rgba(0,0,0,0.6);
+    box-shadow: 0 4px 5px -2px rgba(0, 0, 0, 0.6);
     padding: 10px;
 
-    .message-header .message-sender{
-        color: var(--maincolor);
-        font-family: 'Inter Tight', sans-serif;
+    .message-header .message-sender {
+        color: var(--eb-c-dark);
+        font-family: var(--font-body);
         font-weight: bold;
         font-size: 11px;
         letter-spacing: 0.05em;
@@ -18,41 +16,41 @@
 }
 
 
-.ebr-chat-result{
+.ebr-chat-result {
     display: flex;
     flex-direction: column;
     gap: 5px;
 
-    & > div{
+    &>div {
         display: flex;
         flex-direction: row;
-        gap: 10px;    
+        gap: 10px;
         font-size: 14px;
         border-top: 1px solid #e0e0ef;
         padding: 6px 0 1px;
         align-items: center;
 
-        &.ebr-intro{
+        &.ebr-intro {
             padding-top: 6px;
             margin-top: 5px;
 
-            i{
+            i {
                 font-style: normal;
                 font-size: 11px;
-                color: var(--middlegrey);
+                color: var(--eb-c-accent);
             }
         }
 
-        &.ebr-result{
+        &.ebr-result {
             border-top: none;
             align-items: center;
             justify-content: center;
             padding: 10px;
             border-radius: 7px;
             margin-top: 10px;
-         }
+        }
 
-         label{
+        label {
             flex-basis: 90px;
             flex-grow: 0;
             font-size: 11px;
@@ -60,33 +58,32 @@
     }
 
 
-    &[data-is-success="true"] > div.ebr-result{
-        background: var(--color-green);
-        color: var(--white);
+    &[data-is-success="true"]>div.ebr-result {
+        background: var(--eb-c-green);
+        color: var(--eb-c-white);
     }
 
-    &[data-is-success="false"] > div.ebr-result{
-        background: var(--color-red);
-        color: var(--white);
+    &[data-is-success="false"]>div.ebr-result {
+        background: var(--eb-c-red);
+        color: var(--eb-c-white);
     }
 
 
 
 
-    &[data-success-level="2"] > div.ebr-result{
-        background: var(--color-green);
-        color: var(--white);
+    &[data-success-level="2"]>div.ebr-result {
+        background: var(--eb-c-green);
+        color: var(--eb-c-white);
     }
 
-    &[data-success-level="1"] > div.ebr-result{
-        background: var(--color-orange);
-        color: var(--white);
+    &[data-success-level="1"]>div.ebr-result {
+        background: var(--eb-c-orange);
+        color: var(--eb-c-white);
     }
 
-    &[data-success-level="0"] > div.ebr-result{
-        background: var(--color-red);
-        color: var(--white);
+    &[data-success-level="0"]>div.ebr-result {
+        background: var(--eb-c-red);
+        color: var(--eb-c-white);
     }
-    
+
 }
-

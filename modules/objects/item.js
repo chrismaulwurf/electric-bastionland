@@ -6,7 +6,7 @@ export class ElectricBastionlandItem extends Item {
     /**
      * Augment the basic Item data model with additional dynamic data.
      */
-    prepareData () {
+    prepareData() {
         super.prepareData();
         const itemData = this.system;
         const actorData = this.actor
