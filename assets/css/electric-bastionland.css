@@ -11,6 +11,7 @@
   --eb-c-orange: #ec8a00;
   --eb-c-green: #007e63;
   --color-shadow-primary: transparent;
+  --eb-c-chat-bg: #fff;
 }
 .system-electricbastionland .sheet {
   --color-scrollbar: #30676e;
@@ -153,31 +154,28 @@
   cursor: pointer;
 }
 
-.system-electricbastionland .sheet {
+.system-electricbastionland .sheet.actor {
   min-width: var(--eb-form-minsize);
   max-width: var(--eb-form-maxsize);
   container-name: sheetContainer;
   container-type: inline-size;
 }
-.system-electricbastionland .sheet form {
-  overflow: auto;
-}
-.system-electricbastionland .sheet form input {
+.system-electricbastionland .sheet.actor form input {
   font-family: var(--font-body);
   font-size: 0.8rem;
   box-sizing: border-box;
   font-weight: normal;
   padding-top: 1px;
 }
-.system-electricbastionland .sheet form input[type=checkbox],
-.system-electricbastionland .sheet form input[type=radio] {
+.system-electricbastionland .sheet.actor form input[type=checkbox],
+.system-electricbastionland .sheet.actor form input[type=radio] {
   padding: 3px 0;
   margin: 0;
   box-sizing: border-box;
   height: 24px;
 }
-.system-electricbastionland .sheet form input[type=checkbox]::before,
-.system-electricbastionland .sheet form input[type=radio]::before {
+.system-electricbastionland .sheet.actor form input[type=checkbox]::before,
+.system-electricbastionland .sheet.actor form input[type=radio]::before {
   background: var(--checkbox-background-color);
   color: transparent;
   width: var(--checkbox-size);
@@ -187,50 +185,53 @@
   border: 1px solid var(--input-border-color);
   box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
-.system-electricbastionland .sheet form input[type=checkbox]::after,
-.system-electricbastionland .sheet form input[type=radio]::after,
-.system-electricbastionland .sheet form input[type=checkbox]:checked::after,
-.system-electricbastionland .sheet form input[type=radio]:checked::after {
+.system-electricbastionland .sheet.actor form input[type=checkbox]::after,
+.system-electricbastionland .sheet.actor form input[type=radio]::after,
+.system-electricbastionland .sheet.actor form input[type=checkbox]:checked::after,
+.system-electricbastionland .sheet.actor form input[type=radio]:checked::after {
   height: var(--checkbox-size);
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   box-shadow: none;
 }
-.system-electricbastionland .sheet form input[type=checkbox]:checked::before,
-.system-electricbastionland .sheet form input[type=radio]:checked::before {
+.system-electricbastionland .sheet.actor form input[type=checkbox]:checked::before,
+.system-electricbastionland .sheet.actor form input[type=radio]:checked::before {
   --checkbox-background-color: var(--eb-c-lightgrey);
   background: var(--eb-c-accent);
   color: white;
   text-align: center;
 }
-.system-electricbastionland .sheet .eb-player-name {
+.system-electricbastionland .sheet.actor form {
+  overflow: auto;
+}
+.system-electricbastionland .sheet.actor .eb-player-name {
   color: #145866;
   padding: 0;
-  font-size: 9px;
+  font-size: 8px;
   width: 100%;
   text-align: right;
   height: 10px;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   position: absolute;
-  top: 8px;
+  top: 9px;
   right: 35px;
 }
-.system-electricbastionland .sheet .eb-player-name:empty {
+.system-electricbastionland .sheet.actor .eb-player-name:empty {
   display: none;
 }
-.system-electricbastionland .sheet .eb-card {
+.system-electricbastionland .sheet.actor .eb-card {
   background-color: var(--eb-c-white);
   border-radius: 10px;
   box-shadow: var(--eb-box-shadow);
 }
-.system-electricbastionland .sheet .eb-items-notice-wrapper {
+.system-electricbastionland .sheet.actor .eb-items-notice-wrapper {
   display: flex;
   gap: 20px;
   flex-direction: column;
 }
-.system-electricbastionland .sheet h3 {
+.system-electricbastionland .sheet.actor h3 {
   font-family: "Oxanium", sans-serif;
   letter-spacing: 0.005em;
   font-weight: bold;
@@ -240,7 +241,7 @@
   align-self: flex-start;
   color: var(--eb-c-dark);
 }
-.system-electricbastionland .sheet .sheet-header {
+.system-electricbastionland .sheet.actor .sheet-header {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -251,7 +252,7 @@
   position: relative;
   justify-content: space-between;
 }
-.system-electricbastionland .sheet .sheet-header .eb-infos-wrapper {
+.system-electricbastionland .sheet.actor .sheet-header .eb-infos-wrapper {
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -260,16 +261,16 @@
   flex-grow: 1;
 }
 @container sheetContainer (width <610px) {
-  .system-electricbastionland .sheet .sheet-header .eb-infos-wrapper {
+  .system-electricbastionland .sheet.actor .sheet-header .eb-infos-wrapper {
     gap: 16px;
   }
 }
-.system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-name-wrapper {
+.system-electricbastionland .sheet.actor .sheet-header .eb-infos-wrapper .eb-name-wrapper {
   display: flex;
   flex-direction: column;
   gap: 0px;
 }
-.system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-name-wrapper h1.char {
+.system-electricbastionland .sheet.actor .sheet-header .eb-infos-wrapper .eb-name-wrapper h1.char {
   height: auto;
   padding: 0px;
   margin: 0;
@@ -277,7 +278,7 @@
   background-color: transparent;
   color: var(--eb-c-dark);
 }
-.system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-name-wrapper h1.char input {
+.system-electricbastionland .sheet.actor .sheet-header .eb-infos-wrapper .eb-name-wrapper h1.char input {
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
@@ -293,20 +294,20 @@
   padding-left: 5px;
   padding-right: 5px;
 }
-.system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-name-wrapper h1.char input:focus {
+.system-electricbastionland .sheet.actor .sheet-header .eb-infos-wrapper .eb-name-wrapper h1.char input:focus {
   outline-color: var(--eb-c-lightgrey);
 }
-.system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-name-wrapper h1.char input::-moz-placeholder {
+.system-electricbastionland .sheet.actor .sheet-header .eb-infos-wrapper .eb-name-wrapper h1.char input::-moz-placeholder {
   color: var(--eb-c-accent);
 }
-.system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-name-wrapper h1.char input::placeholder {
+.system-electricbastionland .sheet.actor .sheet-header .eb-infos-wrapper .eb-name-wrapper h1.char input::placeholder {
   color: var(--eb-c-accent);
 }
-.system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-name-wrapper h2.failed-career {
+.system-electricbastionland .sheet.actor .sheet-header .eb-infos-wrapper .eb-name-wrapper h2.failed-career {
   line-height: 14px;
   height: 14px;
 }
-.system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-name-wrapper h2.failed-career input {
+.system-electricbastionland .sheet.actor .sheet-header .eb-infos-wrapper .eb-name-wrapper h2.failed-career input {
   overflow: hidden;
   text-overflow: ellipsis;
   border: 0px;
@@ -322,16 +323,16 @@
   padding-left: 5px;
   padding-right: 5px;
 }
-.system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-name-wrapper h2.failed-career input:focus {
+.system-electricbastionland .sheet.actor .sheet-header .eb-infos-wrapper .eb-name-wrapper h2.failed-career input:focus {
   outline-color: var(--eb-c-lightgrey);
 }
-.system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-name-wrapper h2.failed-career input::-moz-placeholder {
+.system-electricbastionland .sheet.actor .sheet-header .eb-infos-wrapper .eb-name-wrapper h2.failed-career input::-moz-placeholder {
   color: var(--eb-c-accent);
 }
-.system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-name-wrapper h2.failed-career input::placeholder {
+.system-electricbastionland .sheet.actor .sheet-header .eb-infos-wrapper .eb-name-wrapper h2.failed-career input::placeholder {
   color: var(--eb-c-accent);
 }
-.system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper {
+.system-electricbastionland .sheet.actor .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper {
   display: flex;
   gap: var(--eb-space-xs);
   padding: 0;
@@ -339,49 +340,49 @@
   flex-wrap: wrap;
 }
 @container sheetContainer (width <610px) {
-  .system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper {
+  .system-electricbastionland .sheet.actor .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper {
     max-width: 200px;
   }
 }
-.system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat {
+.system-electricbastionland .sheet.actor .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat {
   border: 1px solid var(--eb-c-accent);
   border-radius: 7px;
   padding: 7px;
   box-sizing: border-box;
 }
-.system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat.eb-hp {
+.system-electricbastionland .sheet.actor .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat.eb-hp {
   flex: 0 0 98px;
 }
-.system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat.eb-hp input {
+.system-electricbastionland .sheet.actor .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat.eb-hp input {
   flex-basis: 30px;
 }
-.system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat.eb-wealth {
+.system-electricbastionland .sheet.actor .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat.eb-wealth {
   flex: 0 0 70px;
 }
-.system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat.eb-armor {
+.system-electricbastionland .sheet.actor .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat.eb-armor {
   flex: 0 0 60px;
 }
-.system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat.eb-deprived {
+.system-electricbastionland .sheet.actor .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat.eb-deprived {
   flex: 0 2 97px;
 }
-.system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat .resource-content {
+.system-electricbastionland .sheet.actor .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat .resource-content {
   align-items: center;
   justify-content: flex-start;
 }
-.system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat .resource-content input {
+.system-electricbastionland .sheet.actor .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat .resource-content input {
   flex-basis: 32px;
   text-align: center;
   flex-grow: 0;
   flex-shrink: 1;
 }
-.system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat .resource-content span {
+.system-electricbastionland .sheet.actor .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat .resource-content span {
   flex-basis: 1rem;
   flex-grow: 0;
   flex-shrink: 2;
   color: var(--eb-c-dark);
   font-weight: normal;
 }
-.system-electricbastionland .sheet .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat label {
+.system-electricbastionland .sheet.actor .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat label {
   font-family: var(--font-body);
   font-weight: normal;
   letter-spacing: 0.01em;
@@ -391,7 +392,7 @@
   font-size: 12px;
   align-self: flex-start;
 }
-.system-electricbastionland .sheet .sheet-header .profile-img {
+.system-electricbastionland .sheet.actor .sheet-header .profile-img {
   width: 170px;
   flex-basis: 170px;
   flex-grow: 0;
@@ -404,13 +405,14 @@
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+  cursor: pointer;
 }
 @container sheetContainer (width <480px) {
-  .system-electricbastionland .sheet .sheet-header .profile-img {
+  .system-electricbastionland .sheet.actor .sheet-header .profile-img {
     display: none;
   }
 }
-.system-electricbastionland .sheet .eb-main-abilities {
+.system-electricbastionland .sheet.actor .eb-main-abilities {
   display: flex;
   flex-direction: column;
   gap: var(--eb-space-m);
@@ -420,37 +422,37 @@
   flex-direction: row;
 }
 @container sheetContainer (width <480px) {
-  .system-electricbastionland .sheet .eb-main-abilities {
+  .system-electricbastionland .sheet.actor .eb-main-abilities {
     flex-direction: column;
   }
 }
-.system-electricbastionland .sheet .eb-main-abilities .ability {
+.system-electricbastionland .sheet.actor .eb-main-abilities .ability {
   flex: 1 2 33%;
   border-top-right-radius: 24px;
   padding: 0;
 }
-.system-electricbastionland .sheet .eb-main-abilities .ability .flexcol {
+.system-electricbastionland .sheet.actor .eb-main-abilities .ability .flexcol {
   padding: var(--eb-space-m);
   display: flex;
   flex-direction: column;
   gap: var(--eb-space-xs);
 }
-.system-electricbastionland .sheet .eb-main-abilities .eb-value-row {
+.system-electricbastionland .sheet.actor .eb-main-abilities .eb-value-row {
   align-items: center;
 }
-.system-electricbastionland .sheet .eb-main-abilities .eb-value-row input {
+.system-electricbastionland .sheet.actor .eb-main-abilities .eb-value-row input {
   flex-basis: 34px;
   flex-grow: 0;
   flex-shrink: 1;
   display: inline-flex;
   justify-items: center;
 }
-.system-electricbastionland .sheet .eb-main-abilities .eb-value-row span {
+.system-electricbastionland .sheet.actor .eb-main-abilities .eb-value-row span {
   flex-basis: 20px;
   flex-grow: 0;
   flex-shrink: 2;
 }
-.system-electricbastionland .sheet .eb-main-abilities .resource-label {
+.system-electricbastionland .sheet.actor .eb-main-abilities .resource-label {
   font-family: var(--font-body);
   letter-spacing: 0.005em;
   font-weight: bold;
@@ -460,7 +462,7 @@
   color: var(--eb-c-dark);
 }
 @container sheetContainer (width <560px) and (width >=480px) {
-  .system-electricbastionland .sheet .eb-main-abilities .resource-label span {
+  .system-electricbastionland .sheet.actor .eb-main-abilities .resource-label span {
     max-width: 100px;
     display: block;
     text-overflow: ellipsis;
@@ -468,7 +470,7 @@
     white-space: nowrap;
   }
 }
-.system-electricbastionland .sheet .eb-main-abilities .resource-button {
+.system-electricbastionland .sheet.actor .eb-main-abilities .resource-button {
   font-family: var(--font-body);
   letter-spacing: 0.01em;
   font-weight: normal;
@@ -490,24 +492,24 @@
   width: 100%;
 }
 @container sheetContainer (width <560px) {
-  .system-electricbastionland .sheet .eb-main-abilities .resource-button {
+  .system-electricbastionland .sheet.actor .eb-main-abilities .resource-button {
     max-width: 90px;
   }
 }
-.system-electricbastionland .sheet .eb-main-abilities .resource-button span {
+.system-electricbastionland .sheet.actor .eb-main-abilities .resource-button span {
   line-height: 17px;
 }
-.system-electricbastionland .sheet .eb-main-abilities .resource-button:focus {
+.system-electricbastionland .sheet.actor .eb-main-abilities .resource-button:focus {
   outline: none;
   box-shadow: none;
 }
-.system-electricbastionland .sheet .eb-main-abilities .resource-button:hover {
+.system-electricbastionland .sheet.actor .eb-main-abilities .resource-button:hover {
   background: var(--eb-c-surfcace-button-hover);
 }
-.system-electricbastionland .sheet .eb-main-abilities .resource-button i {
+.system-electricbastionland .sheet.actor .eb-main-abilities .resource-button i {
   font-size: 16px;
 }
-.system-electricbastionland .sheet .sheet-body {
+.system-electricbastionland .sheet.actor .sheet-body {
   background: var(--eb-c-white);
   border-radius: 10px 10px 24px 10px;
   padding: 15px 15px;
@@ -515,14 +517,14 @@
   flex: initial;
   flex-basis: 50%;
 }
-.system-electricbastionland .sheet .eb-sheet-action-buttons {
+.system-electricbastionland .sheet.actor .eb-sheet-action-buttons {
   display: flex;
   flex-direction: row;
   gap: var(--eb-space-xs);
   padding: 0;
   flex-wrap: wrap;
 }
-.system-electricbastionland .sheet .eb-sheet-action-buttons button {
+.system-electricbastionland .sheet.actor .eb-sheet-action-buttons button {
   --button-size: 2rem;
   background: var(--eb-c-surfcace-button);
   border: none;
@@ -536,10 +538,10 @@
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   border: none;
 }
-.system-electricbastionland .sheet .eb-sheet-action-buttons button:hover {
+.system-electricbastionland .sheet.actor .eb-sheet-action-buttons button:hover {
   background: var(--eb-c-surfcace-button-hover);
 }
-.system-electricbastionland .sheet .eb-sheet-action-buttons button:focus {
+.system-electricbastionland .sheet.actor .eb-sheet-action-buttons button:focus {
   outline: none;
   box-shadow: none;
 }
@@ -848,10 +850,14 @@
   height: 100%;
 }
 
-.system-electricbastionland .item-sheet .eb-main-stat-wrapper input {
+.system-electricbastionland .sheet.item {
+  min-width: var(--eb-form-minsize);
+  max-width: var(--eb-form-maxsize);
+}
+.system-electricbastionland .sheet.item .eb-main-stat-wrapper input {
   padding-top: 2px;
 }
-.system-electricbastionland .item-sheet h1 {
+.system-electricbastionland .sheet.item .item-sheet h1 {
   height: 40px;
   padding: 0px;
   margin: 0;
@@ -859,7 +865,7 @@
   background-color: transparent;
   color: var(--eb-c-dark);
 }
-.system-electricbastionland .item-sheet h1 input {
+.system-electricbastionland .sheet.item .item-sheet h1 input {
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
@@ -873,13 +879,13 @@
   box-shadow: none;
   font-size: 2rem;
 }
-.system-electricbastionland .item-sheet h1 input::-moz-placeholder {
+.system-electricbastionland .sheet.item .item-sheet h1 input::-moz-placeholder {
   color: var(--eb-c-accent);
 }
-.system-electricbastionland .item-sheet h1 input::placeholder {
+.system-electricbastionland .sheet.item .item-sheet h1 input::placeholder {
   color: var(--eb-c-accent);
 }
-.system-electricbastionland .item-sheet .eb-main-stat-wrapper {
+.system-electricbastionland .sheet.item .eb-main-stat-wrapper {
   display: flex;
   flex-direction: column;
   background: var(--eb-c-white);
@@ -888,17 +894,17 @@
   box-shadow: var(--eb-box-shadow);
   padding: 10px;
 }
-.system-electricbastionland .item-sheet .eb-main-stat-wrapper .eb-main-stat {
+.system-electricbastionland .sheet.item .eb-main-stat-wrapper .eb-main-stat {
   flex: 0 0 34px;
 }
-.system-electricbastionland .item-sheet .eb-main-stat-wrapper .eb-main-stat .flexcol {
+.system-electricbastionland .sheet.item .eb-main-stat-wrapper .eb-main-stat .flexcol {
   display: flex;
   flex-direction: row;
   gap: var(--eb-space-s);
   padding: 0 0 10px 0;
   border-bottom: 1px solid var(--eb-c-lightgrey);
 }
-.system-electricbastionland .item-sheet .eb-main-stat-wrapper .eb-main-stat .flexcol label {
+.system-electricbastionland .sheet.item .eb-main-stat-wrapper .eb-main-stat .flexcol label {
   align-content: center;
   line-height: 100%;
   text-align: left;
@@ -906,17 +912,17 @@
   flex: 0 0 150px;
   color: var(--eb-c-dark);
 }
-.system-electricbastionland .item-sheet .eb-main-stat-wrapper .eb-main-stat .flexcol .resource-content {
+.system-electricbastionland .sheet.item .eb-main-stat-wrapper .eb-main-stat .flexcol .resource-content {
   flex: 0 1 50px;
 }
-.system-electricbastionland .item-sheet .eb-main-stat-wrapper .eb-main-stat:last-child .flexcol {
+.system-electricbastionland .sheet.item .eb-main-stat-wrapper .eb-main-stat:last-child .flexcol {
   padding-bottom: 0;
   border-bottom: none;
 }
 
 .chat-message {
   background-image: none;
-  background-color: var(--eb-c-white);
+  background-color: var(--eb-c-chat-bg);
   margin: 12px 10px;
   border: none;
   box-shadow: 0 4px 5px -2px rgba(0, 0, 0, 0.6);
@@ -988,7 +994,8 @@
   color: var(--eb-c-white);
 }
 
-.system-electricbastionland .sheet,
+.system-electricbastionland .sheet.actor,
+.system-electricbastionland .sheet.item,
 .system-electricbastionland .chat-message {
   --font-body: "Oxanium", sans-serif;
   --font-h1-size: 2rem;
@@ -1000,24 +1007,33 @@
   --eb-form-minsize: 320px;
   --eb-form-maxsize: 330px;
   --eb-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  overflow: auto;
 }
-.system-electricbastionland .sheet.actor,
+.system-electricbastionland .sheet.actor.actor,
+.system-electricbastionland .sheet.item.actor,
 .system-electricbastionland .chat-message.actor {
   --eb-form-minsize: 300px;
   --eb-form-maxsize: 630px;
 }
-.system-electricbastionland .sheet .window-content,
+.system-electricbastionland .sheet.actor,
+.system-electricbastionland .sheet.item,
+.system-electricbastionland .chat-message {
+  overflow: auto;
+}
+.system-electricbastionland .sheet.actor .window-content,
+.system-electricbastionland .sheet.item .window-content,
 .system-electricbastionland .chat-message .window-content {
   background: var(--eb-c-surface);
   padding: 0;
 }
-.system-electricbastionland .sheet form,
-.system-electricbastionland .sheet #electricbastionland-actor,
-.system-electricbastionland .sheet #electricbastionland-item,
+.system-electricbastionland .sheet.actor form,
+.system-electricbastionland .sheet.actor #electricbastionland-actor,
+.system-electricbastionland .sheet.actor .sheet.item,
+.system-electricbastionland .sheet.item form,
+.system-electricbastionland .sheet.item #electricbastionland-actor,
+.system-electricbastionland .sheet.item .sheet.item,
 .system-electricbastionland .chat-message form,
 .system-electricbastionland .chat-message #electricbastionland-actor,
-.system-electricbastionland .chat-message #electricbastionland-item {
+.system-electricbastionland .chat-message .sheet.item {
   min-width: var(--eb-form-minsize);
   max-width: var(--eb-form-maxsize);
   margin: auto;
@@ -1027,18 +1043,24 @@
   flex-direction: column;
   gap: var(--eb-space-m);
 }
-.system-electricbastionland .sheet form input,
-.system-electricbastionland .sheet form textarea,
-.system-electricbastionland .sheet #electricbastionland-actor input,
-.system-electricbastionland .sheet #electricbastionland-actor textarea,
-.system-electricbastionland .sheet #electricbastionland-item input,
-.system-electricbastionland .sheet #electricbastionland-item textarea,
+.system-electricbastionland .sheet.actor form input,
+.system-electricbastionland .sheet.actor form textarea,
+.system-electricbastionland .sheet.actor #electricbastionland-actor input,
+.system-electricbastionland .sheet.actor #electricbastionland-actor textarea,
+.system-electricbastionland .sheet.actor .sheet.item input,
+.system-electricbastionland .sheet.actor .sheet.item textarea,
+.system-electricbastionland .sheet.item form input,
+.system-electricbastionland .sheet.item form textarea,
+.system-electricbastionland .sheet.item #electricbastionland-actor input,
+.system-electricbastionland .sheet.item #electricbastionland-actor textarea,
+.system-electricbastionland .sheet.item .sheet.item input,
+.system-electricbastionland .sheet.item .sheet.item textarea,
 .system-electricbastionland .chat-message form input,
 .system-electricbastionland .chat-message form textarea,
 .system-electricbastionland .chat-message #electricbastionland-actor input,
 .system-electricbastionland .chat-message #electricbastionland-actor textarea,
-.system-electricbastionland .chat-message #electricbastionland-item input,
-.system-electricbastionland .chat-message #electricbastionland-item textarea {
+.system-electricbastionland .chat-message .sheet.item input,
+.system-electricbastionland .chat-message .sheet.item textarea {
   --input-box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
   --input-height: 24px;
   --checkbox-size: 18px;

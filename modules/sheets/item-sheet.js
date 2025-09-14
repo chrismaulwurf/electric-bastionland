@@ -9,7 +9,7 @@ export class ElectricBastionlandItemSheet extends api.HandlebarsApplicationMixin
     /** @override */
     static get defaultOptions() {
         return foundry.utils.mergeObject(super.defaultOptions, {
-            ...super.defaultOptions,
+            classes: ["electricbastionland", "sheet", "item"],  // das wirkt auf <div class="application ...">
             actions: {
                 "item.inlineedit": function (event) {
                     this._onItemChangeValue(event);
@@ -21,9 +21,7 @@ export class ElectricBastionlandItemSheet extends api.HandlebarsApplicationMixin
             },
             window: {
                 title: "Electric Bastionland Item",
-                icon: "fas fa-item",
-                classes: ["electricbastionland", "sheet", "item"],
-                resizable: true
+                icon: "fas fa-item"
             },
             position: { width: 240, height: 335 },
             resizable: true
@@ -69,6 +67,10 @@ export class ElectricBastionlandItemSheet extends api.HandlebarsApplicationMixin
     /** @override */
     _onRender(context, options) {
         super._onRender(context, options);
+
+        // Äußere Section mit Klassen versehen
+        this.element.classList.add("electricbastionland", "sheet", "item");
+
 
         // Inline-Edit Inputs: Text und Number
         this.element.querySelectorAll('.inline-item-edit').forEach(input => {

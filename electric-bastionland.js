@@ -27,23 +27,6 @@ Hooks.once('init', async function () {
         label: "Electric Bastionland Item"
     });
 
-    /*Actors.unregisterSheet("core", ActorSheet);
-    Actors.registerSheet("electricbastionland", ElectricBastionlandActorSheet, {
-        makeDefault: true
-    });
-    Items.unregisterSheet("core", ItemSheet);
-    Items.registerSheet("electricbastionland", ElectricBastionlandItemSheet, { makeDefault: true });
-    game.electricbastionland = {
-        apps: {
-            ElectricBastionlandActorSheet,
-            ElectricBastionlandItemSheet
-        },
-        entities: {
-            ElectricBastionlandActor,
-            ElectricBastionlandItem,
-        }
-    }; */
-
     registerHandlebarsHelpers();
 
 });

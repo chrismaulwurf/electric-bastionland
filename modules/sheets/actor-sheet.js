@@ -35,7 +35,17 @@ export class ElectricBastionlandActorSheet extends api.HandlebarsApplicationMixi
             },
             "roll.damage": function (event) {
                 this._onRollDamage(event);
-            }
+            }, "edit-image": async function (event) {
+                event.preventDefault();
+                const FilePickerCls = foundry.applications.apps.FilePicker.implementation;
+                const fp = new FilePickerCls({
+                    type: "image",
+                    current: "user-uploads",
+                    callback: path => this._updateActorImage(path)
+                });
+
+                fp.render(true);
+            },
         },
         form: {
             submitOnChange: true,
@@ -336,8 +346,9 @@ export class ElectricBastionlandActorSheet extends api.HandlebarsApplicationMixi
     }
 
 
-
-
+    async _updateActorImage(path) {
+        this.actor.update({ img: path });
+    }
 
     async onItemInlineEdit(event, target) {
         const itemId = event.target.dataset.itemId;

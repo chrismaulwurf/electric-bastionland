@@ -7,7 +7,8 @@
 
 .system-electricbastionland {
 
-    .sheet,
+    .sheet.actor,
+    .sheet.item,
     .chat-message {
         --font-body: 'Oxanium', sans-serif;
         --font-h1-size: 2rem;
@@ -27,7 +28,9 @@
             --eb-form-maxsize: 630px;
         }
 
-        overflow: auto;
+        & {
+            overflow: auto;
+        }
 
         .window-content {
             background: var(--eb-c-surface);
@@ -36,7 +39,7 @@
 
         form,
         #electricbastionland-actor,
-        #electricbastionland-item {
+        .sheet.item {
 
             min-width: var(--eb-form-minsize);
             max-width: var(--eb-form-maxsize);
