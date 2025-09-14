@@ -14,14 +14,18 @@
 }
 .system-electricbastionland .sheet {
   --color-scrollbar: #30676e;
+}
+.system-electricbastionland .sheet form,
+.system-electricbastionland .sheet #electricbastionland-actor,
+.system-electricbastionland .sheet .item-sheet {
   --color-text-primary: var(--eb-c-dark);
 }
 .system-electricbastionland .sheet form input,
 .system-electricbastionland .sheet form textarea,
 .system-electricbastionland .sheet #electricbastionland-actor input,
 .system-electricbastionland .sheet #electricbastionland-actor textarea,
-.system-electricbastionland .sheet #electricbastionland-item input,
-.system-electricbastionland .sheet #electricbastionland-item textarea {
+.system-electricbastionland .sheet .item-sheet input,
+.system-electricbastionland .sheet .item-sheet textarea {
   --input-background-color: var(--eb-c-lightgrey);
   --input-text-color: var(--eb-c-dark);
   --input-border-color: var(--eb-c-lightgrey-border);
@@ -694,6 +698,11 @@
   font-weight: 600;
   -webkit-font-smoothing: antialiased;
 }
+@container sheetContainer (width >400px) {
+  .electricbastionland .items-list .item .eb-item-infos > span.eb-bulky-status.active {
+    display: block;
+  }
+}
 .electricbastionland .items-list .item .item-image {
   flex: 0 0 24px;
   margin-right: 5px;
@@ -727,6 +736,7 @@
   justify-content: center;
   margin: 7px 0 0 2px;
   background: var(--eb-c-lightgrey);
+  padding-top: 1px;
   border: 1px solid var(--eb-c-lightgrey-border);
 }
 .electricbastionland .items-list .item.eb-new-row .item-controls .item-create i {
@@ -826,13 +836,16 @@
   height: 100%;
 }
 
+.system-electricbastionland .item-sheet .eb-main-stat-wrapper input {
+  padding-top: 2px;
+}
 .system-electricbastionland .item-sheet h1 {
   height: 40px;
   padding: 0px;
   margin: 0;
   border-bottom: 0;
   background-color: transparent;
-  color: var(--dark);
+  color: var(--eb-c-dark);
 }
 .system-electricbastionland .item-sheet h1 input {
   overflow: hidden;
@@ -878,7 +891,8 @@
   line-height: 100%;
   text-align: left;
   justify-content: flex-start;
-  flex: 0 0 130px;
+  flex: 0 0 150px;
+  color: var(--eb-c-dark);
 }
 .system-electricbastionland .item-sheet .eb-main-stat-wrapper .eb-main-stat .flexcol .resource-content {
   flex: 0 1 50px;

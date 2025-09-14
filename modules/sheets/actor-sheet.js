@@ -8,7 +8,7 @@ export class ElectricBastionlandActorSheet extends api.HandlebarsApplicationMixi
     CHAT_TEMPLATE_DAMAGE = "systems/electricbastionland/templates/chat/roll-damage.hbs";
     sheetContext = {};
 
-    ////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////
 
     /** @override */
     static DEFAULT_OPTIONS = {
@@ -48,12 +48,12 @@ export class ElectricBastionlandActorSheet extends api.HandlebarsApplicationMixi
         },
         position: {
             width: 630,
-            height: 840
+            height: 850
         },
         resizable: true
     };
 
-    ////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////
 
     /** @override */
     static PARTS = {
@@ -64,13 +64,13 @@ export class ElectricBastionlandActorSheet extends api.HandlebarsApplicationMixi
         }
     };
 
-    ////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////
 
     get title() {
-        return this.actor.name;
+        return "Charakter – " + this.actor.name;
     }
 
-    ////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////
 
     /** @override */
     async _prepareContext(options) {
@@ -93,10 +93,7 @@ export class ElectricBastionlandActorSheet extends api.HandlebarsApplicationMixi
         return context;
     }
 
-    ////////////////////////////////////////////////////////////////////////////////
-
-
-    ////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////
 
     /** @override */
     _onRender(context, options) {
@@ -130,8 +127,7 @@ export class ElectricBastionlandActorSheet extends api.HandlebarsApplicationMixi
 
     }
 
-
-    //////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////
     // onChangeForm
 
     /** @override */
@@ -160,14 +156,14 @@ export class ElectricBastionlandActorSheet extends api.HandlebarsApplicationMixi
         await this.actor.update(expandedData);
     }
 
-    //////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////
     // getPlayerById
 
     _getPlayerById(searchId) {
         return game.users.players.find(u => u.id === searchId) ?? null;
     }
 
-    //////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////
     // getOwnerData
 
     async _getOwnerData(context) {
@@ -187,7 +183,7 @@ export class ElectricBastionlandActorSheet extends api.HandlebarsApplicationMixi
         }
     }
 
-    //////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////
     // onRollStat
 
     async _onRollStat(event) {
@@ -218,7 +214,7 @@ export class ElectricBastionlandActorSheet extends api.HandlebarsApplicationMixi
         });
     }
 
-    //////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////
     // onRest
 
     async _onRest() {
@@ -229,7 +225,7 @@ export class ElectricBastionlandActorSheet extends api.HandlebarsApplicationMixi
         await this.actor.update({ 'system.hp.value': this.actor.system.hp.max });
     }
 
-    //////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////
     // onRestore
 
     async _onRestore() {
@@ -240,7 +236,7 @@ export class ElectricBastionlandActorSheet extends api.HandlebarsApplicationMixi
         });
     }
 
-    //////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////
     // onRollForLuck
 
     async _onRollForLuck(event, target) {
@@ -271,14 +267,14 @@ export class ElectricBastionlandActorSheet extends api.HandlebarsApplicationMixi
         });
     }
 
-    /////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////
     // _onItemChangeValue
 
     async _onItemChangeValue(event) {
         event.preventDefault();
         const target = event.target;
         const itemId = target.dataset.itemId;
-        const field = target.dataset.field;
+        const field = target.dataset.field === 'item' ? 'name' : target.dataset.field;
         const value = target.type === "number" ? Number(target.value) : target.value;
 
         const item = this.actor.items.get(itemId);
@@ -288,7 +284,7 @@ export class ElectricBastionlandActorSheet extends api.HandlebarsApplicationMixi
         console.log(`Updated item ${itemId}: ${field} =`, value);
     }
 
-    /////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////
     // _onItemEdit
 
     async _onItemEdit(event) {
@@ -297,7 +293,7 @@ export class ElectricBastionlandActorSheet extends api.HandlebarsApplicationMixi
         item.sheet.render(true);
     }
 
-    /////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////
     // _onItemCreate
 
     async _onItemCreate(event) {
@@ -311,7 +307,7 @@ export class ElectricBastionlandActorSheet extends api.HandlebarsApplicationMixi
         return this.actor.createEmbeddedDocuments("Item", [itemData]);
     }
 
-    /////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////
     // _onItemDelete
 
     async _onItemDelete(event, target) {
@@ -350,7 +346,7 @@ export class ElectricBastionlandActorSheet extends api.HandlebarsApplicationMixi
         return item?.update({ [field]: event.target.value });
     }
 
-    //////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////
     // onRollDamage NEED TO CHECK
 
     async _onRollDamage(event, target) {

@@ -1,8 +1,9 @@
 <form class="{{cssClass}} item-sheet" autocomplete="off">
 
-    {{log this}}
     <h1 class="eb-item-n">
-        <input name="item" type="text" value="{{item.name}}" placeholder="{{localize 'EB.Item.Name'}}" />
+        <input name="item" type="text" value="{{item.name}}" data-field="system.item" data-action="item.inlineedit"
+            data-action-event="change" placeholder="{{localize 'EB.Item.Name'}}"
+            class="eb-item-input inline-item-edit" />
     </h1>
 
 
@@ -14,7 +15,9 @@
             <div class="flexcol">
                 <label for="data.quantity" class="resource-label">{{localize 'EB.Item.Quantity'}}</label>
                 <div class="resource-content flexrow flex-center flex-between">
-                    <input type="number" name="system.quantity" value="{{systemData.quantity}}" data-dtype="Number" />
+                    <input type="number" name="system.quantity" value="{{systemData.quantity}}" data-dtype="Number"
+                        data-field="system.quantity" data-action="item.inlineedit" data-action-event="change"
+                        class="eb-item-input inline-item-edit" />
                 </div>
             </div>
         </div>
@@ -25,7 +28,8 @@
                 <label for="data.numberOfUses" class="resource-label">{{localize 'EB.Item.NumberOfUses'}}</label>
                 <div class="resource-content flexrow flex-center flex-between">
                     <input type="number" name="system.numberOfUses" value="{{systemData.numberOfUses}}"
-                        data-dtype="Number" />
+                        data-field="system.numberOfUses" data-action="item.inlineedit" data-action-event="change"
+                        data-dtype="Number" class="eb-item-input inline-item-edit" />
                 </div>
             </div>
         </div>
@@ -34,8 +38,9 @@
         <div class="eb-main-stat eb-bulky resource flexrow flex-group-center">
             <div class="flexcol">
                 <label class="resource-label">{{localize 'EB.Item.Bulky'}}</label>
-                <input class="checkbox-block" type="checkbox" {{checked systemData.bulky}} name="system.bulky"
-                    value="{{systemData.bulky}}" data-dtype="Boolean" />
+                <input type="checkbox" {{checked systemData.bulky}} name="system.bulky" data-field="system.bulky"
+                    data-action="item.inlineedit" data-action-event="change" value="{{systemData.bulky}}"
+                    data-dtype="Boolean" class="checkbox-block eb-item-input inline-item-edit" />
             </div>
         </div>
 
@@ -44,7 +49,9 @@
             <div class="flexcol">
                 <label for="data.armor" class="resource-label">{{localize 'EB.Item.Armor'}}</label>
                 <div class="resource-content flexrow flex-center flex-between">
-                    <input type="number" name="system.armor" value="{{systemData.armor}}" data-dtype="Number" />
+                    <input type="number" name="system.armor" value="{{systemData.armor}}" data-dtype="Number"
+                        data-field="system.armor" data-action="item.inlineedit" data-action-event="change"
+                        class="eb-item-input inline-item-edit" />
                 </div>
             </div>
         </div>
@@ -55,7 +62,9 @@
                 <label for="data.damageFormula" class="resource-label">{{localize 'EB.Item.Damage'}}</label>
                 <div class="resource-content flexrow flex-center flex-between">
                     <input type="text" name="system.damageFormula" value="{{systemData.damageFormula}}"
-                        data-dtype="String" placeholder="{{localize 'EB.Item.DamagePlaceholder'}}" />
+                        data-field="system.damageFormula" data-dtype="String"
+                        placeholder="{{localize 'EB.Item.DamagePlaceholder'}}" data-action="item.inlineedit"
+                        data-action-event="change" class="eb-item-input inline-item-edit" />
                 </div>
             </div>
         </div>
@@ -71,9 +80,11 @@
         {{!-- DESCRIPTION --}}
         <div class="eb-description">
             <div class="grow-wrap" data-replicated-value="{{systemData.description}}">
-                <textarea data-field="systemData.description" id="description" name="system.description"
+                <textarea id="description" name="system.description" data-field="system.description"
                     onInput="this.parentNode.dataset.replicatedValue = this.value"
-                    placeholder="{{localize 'EB.Item.Description'}}">{{systemData.description}}</textarea>
+                    placeholder="{{localize 'EB.Item.Description'}}" data-action="item.inlineedit"
+                    data-action-event="change"
+                    class="eb-item-input inline-item-edit">{{systemData.description}}</textarea>
             </div>
         </div>
 

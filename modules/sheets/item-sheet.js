@@ -4,15 +4,16 @@ const sheets = foundry.applications.sheets;
 export class ElectricBastionlandItemSheet extends api.HandlebarsApplicationMixin(sheets.ItemSheetV2) {
     sheetContext = {};
 
-    ///////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////
 
     /** @override */
     static get defaultOptions() {
         return foundry.utils.mergeObject(super.defaultOptions, {
             ...super.defaultOptions,
             actions: {
-
+                "item.inlineedit": function (event) {
+                    this._onItemChangeValue(event);
+                },
             },
             form: {
                 submitOnChange: true,
@@ -38,13 +39,13 @@ export class ElectricBastionlandItemSheet extends api.HandlebarsApplicationMixin
         }
     };
 
-    ////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////
 
     get title() {
-        return this.item.name;
+        return "Item – " + this.item.name;
     }
 
-    ////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////
 
     /** @override */
     async _prepareContext(options) {
@@ -63,15 +64,43 @@ export class ElectricBastionlandItemSheet extends api.HandlebarsApplicationMixin
         return context;
     }
 
-
+    ///////////////////////
 
     /** @override */
-    activateListeners(html) {
-        super.activateListeners(html);
+    _onRender(context, options) {
+        super._onRender(context, options);
 
-        // Everything below here is only needed if the sheet is editable
-        if (!this.options.editable) return;
+        // Inline-Edit Inputs: Text und Number
+        this.element.querySelectorAll('.inline-item-edit').forEach(input => {
+            input.addEventListener('change', async (event) => {
+                event.preventDefault();
+                this._onItemChangeValue(event);
+            });
+        });
 
-        // Roll handlers, click handlers, etc. would go here.
     }
+
+    ///////////////////////
+    // _onItemChangeValue
+
+    async _onItemChangeValue(event) {
+        event.preventDefault();
+        const target = event.target;
+        const itemId = this.document.id;
+        const field = target.dataset.field === 'system.item' ? 'name' : target.dataset.field;
+        let value = target.type === "number" ? Number(target.value) : target.value;
+        if (target.dataset.dtype === 'Boolean') {
+            value = target.checked;
+        }
+
+
+        //const item = this.actor.items.get(itemId);
+        const item = this.document;
+        if (!item) return;
+        await item.update({ [field]: value });
+        console.log(`Updated item ${itemId}: ${field} =`, value);
+    }
+
+    ///////////////////////
+
 }

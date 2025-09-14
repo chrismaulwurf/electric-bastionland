@@ -618,7 +618,13 @@
                     color: var(--eb-c-dark);
                     font-weight: 600;
                     -webkit-font-smoothing: antialiased;
+
+
+                    @container sheetContainer (width >400px) {
+                        display: block;
+                    }
                 }
+
             }
 
 
@@ -664,7 +670,7 @@
                     justify-content: center;
                     margin: 7px 0 0 2px;
                     background: var(--eb-c-lightgrey);
-
+                    padding-top: 1px;
                     border: 1px solid var(--eb-c-lightgrey-border);
 
                     i {

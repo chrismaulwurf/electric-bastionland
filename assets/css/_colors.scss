@@ -17,12 +17,12 @@
     .sheet {
 
         --color-scrollbar: #30676e;
-        --color-text-primary: var(--eb-c-dark);
 
 
         form,
         #electricbastionland-actor,
-        #electricbastionland-item {
+        .item-sheet {
+            --color-text-primary: var(--eb-c-dark);
 
             input,
             textarea {
