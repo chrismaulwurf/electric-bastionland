@@ -18,13 +18,13 @@ Hooks.once('init', async function () {
     DocumentSheetConfig.registerSheet(Actor, 'electricbastionland', ElectricBastionlandActorSheet, {
         types: ["character"],
         makeDefault: true,
-        label: "Electric Bastionland Actor w1"
+        label: "Electric Bastionland Actor"
     });
 
     DocumentSheetConfig.unregisterSheet(Item, "core", foundry.appv1.sheets.ItemSheet);
     DocumentSheetConfig.registerSheet(Item, 'electricbastionland', ElectricBastionlandItemSheet, {
         makeDefault: true,
-        label: "Electric Bastionland Item w2"
+        label: "Electric Bastionland Item"
     });
 
     /*Actors.unregisterSheet("core", ActorSheet);

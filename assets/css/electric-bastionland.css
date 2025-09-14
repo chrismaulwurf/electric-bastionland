@@ -216,7 +216,7 @@
 .system-electricbastionland .sheet .eb-card {
   background-color: var(--eb-c-white);
   border-radius: 10px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--eb-box-shadow);
 }
 .system-electricbastionland .sheet .eb-items-notice-wrapper {
   display: flex;
@@ -826,20 +826,7 @@
   height: 100%;
 }
 
-.system-electricbastionland .sheet.item .window-content {
-  padding: 20px;
-  background-image: none;
-}
-.system-electricbastionland .sheet.item .window-content form {
-  background-color: var(--eb-c-white);
-  border-radius: 10px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-  padding: 20px;
-  box-sizing: border-box;
-  flex: initial;
-  max-width: 700px;
-}
-.system-electricbastionland .sheet.item .window-content form h1 {
+.system-electricbastionland .item-sheet h1 {
   height: 40px;
   padding: 0px;
   margin: 0;
@@ -847,7 +834,7 @@
   background-color: transparent;
   color: var(--dark);
 }
-.system-electricbastionland .sheet.item .window-content form h1 input {
+.system-electricbastionland .item-sheet h1 input {
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
@@ -857,89 +844,48 @@
   border: 0px;
   background-color: transparent;
   color: var(--dark);
+  border: none;
+  box-shadow: none;
+  font-size: 2rem;
 }
-.system-electricbastionland .sheet.item .window-content form h1 input::-moz-placeholder {
+.system-electricbastionland .item-sheet h1 input::-moz-placeholder {
   color: var(--eb-c-accent);
 }
-.system-electricbastionland .sheet.item .window-content form h1 input::placeholder {
+.system-electricbastionland .item-sheet h1 input::placeholder {
   color: var(--eb-c-accent);
 }
-.system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper {
+.system-electricbastionland .item-sheet .eb-main-stat-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin: 10px 0 15px;
+  background: var(--eb-c-white);
+  border-radius: 10px 24px 10px 10px;
+  overflow: hidden;
+  box-shadow: var(--eb-box-shadow);
+  padding: 10px;
 }
-.system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper .eb-main-stat {
-  border: 1px solid var(--eb-c-lightgrey);
-  border-radius: 7px;
-  padding: 7px;
-  box-sizing: border-box;
+.system-electricbastionland .item-sheet .eb-main-stat-wrapper .eb-main-stat {
+  flex: 0 0 34px;
 }
-.system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper .eb-main-stat .resource-content {
-  align-items: center;
+.system-electricbastionland .item-sheet .eb-main-stat-wrapper .eb-main-stat .flexcol {
+  display: flex;
+  flex-direction: row;
+  gap: var(--eb-space-s);
+  padding: 0 0 10px 0;
+  border-bottom: 1px solid var(--eb-c-lightgrey);
+}
+.system-electricbastionland .item-sheet .eb-main-stat-wrapper .eb-main-stat .flexcol label {
+  align-content: center;
+  line-height: 100%;
+  text-align: left;
   justify-content: flex-start;
+  flex: 0 0 130px;
 }
-.system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper .eb-main-stat .resource-content input {
-  flex-basis: 30px;
-  flex-grow: 0;
-  flex-shrink: 1;
+.system-electricbastionland .item-sheet .eb-main-stat-wrapper .eb-main-stat .flexcol .resource-content {
+  flex: 0 1 50px;
 }
-.system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper .eb-main-stat .resource-content input[type=text] {
-  flex-basis: 80px;
-}
-.system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper .eb-main-stat .resource-content span {
-  flex-basis: 17px;
-  flex-grow: 0;
-  flex-shrink: 2;
-}
-.system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper .eb-main-stat label {
-  font-family: var(--font-body);
-  letter-spacing: 0.02em;
-  font-weight: 600;
-  display: block;
-  margin-bottom: 4px;
-  font-size: 12px;
-  align-self: flex-start;
-}
-.system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper .eb-description textarea {
-  background-color: var(--eb-c-white);
-  border: 1px solid var(--eb-c-lightgrey);
-  border-radius: 7px;
-  padding: 7px;
-  box-sizing: border-box;
-  min-height: 100px;
-}
-@container sheetContainer (width >=520px) {
-  .system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper .eb-main-abilities {
-    display: flex;
-    flex: initial;
-    flex-direction: row;
-    gap: 10px;
-  }
-  .system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper .eb-main-stat-wrapper {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-  }
-  .system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper .eb-main-stat-wrapper .eb-main-stat {
-    flex-grow: 1;
-  }
-  .system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper .eb-main-stat-wrapper .eb-main-stat.eb-quantity {
-    flex-basis: 60px;
-  }
-  .system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper .eb-main-stat-wrapper .eb-main-stat.eb-number-of-uses {
-    flex-basis: 140px;
-  }
-  .system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper .eb-main-stat-wrapper .eb-main-stat.eb-bulky {
-    flex-basis: 60px;
-  }
-  .system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper .eb-main-stat-wrapper .eb-main-stat.eb-armor {
-    flex-basis: 60px;
-  }
-  .system-electricbastionland .sheet.item .window-content form .eb-main-stat-wrapper .eb-main-stat-wrapper .eb-main-stat.eb-damage-formula {
-    flex-basis: 80px;
-  }
+.system-electricbastionland .item-sheet .eb-main-stat-wrapper .eb-main-stat:last-child .flexcol {
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 .system-electricbastionland .sheet {
@@ -950,9 +896,14 @@
   --eb-space-m: 16px;
   --eb-space-l: 20px;
   --eb-space-xl: 24px;
+  --eb-form-minsize: 320px;
+  --eb-form-maxsize: 330px;
+  --eb-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  overflow: auto;
+}
+.system-electricbastionland .sheet.actor {
   --eb-form-minsize: 300px;
   --eb-form-maxsize: 630px;
-  overflow: auto;
 }
 .system-electricbastionland .sheet .window-content {
   background: var(--eb-c-surface);

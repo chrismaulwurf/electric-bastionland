@@ -48,7 +48,7 @@ export class ElectricBastionlandActorSheet extends api.HandlebarsApplicationMixi
         },
         position: {
             width: 630,
-            height: 820
+            height: 840
         },
         resizable: true
     };

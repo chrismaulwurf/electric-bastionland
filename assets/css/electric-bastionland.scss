@@ -14,8 +14,15 @@
         --eb-space-l: 20px;
         --eb-space-xl: 24px;
 
-        --eb-form-minsize: 300px;
-        --eb-form-maxsize: 630px;
+        --eb-form-minsize: 320px;
+        --eb-form-maxsize: 330px;
+
+        --eb-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+
+        &.actor {
+            --eb-form-minsize: 300px;
+            --eb-form-maxsize: 630px;
+        }
 
         overflow: auto;
 

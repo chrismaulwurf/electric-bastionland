@@ -1,162 +1,76 @@
-.system-electricbastionland .sheet.item {
+.system-electricbastionland .item-sheet {
 
-    .window-content {
+    /////////////////////
 
-        padding: 20px;
-        background-image: none;
-    }
+    h1 {
+        height: 40px;
+        padding: 0px;
+        margin: 0;
+        border-bottom: 0;
+        background-color: transparent;
+        color: var(--dark);
 
-    /////////////////////////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////////////////////
-
-    .window-content form {
-        background-color: var(--eb-c-white);
-        border-radius: 10px;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-        padding: 20px;
-        box-sizing: border-box;
-        flex: initial;
-        max-width: 700px;
-
-        /////////////////////////////////////////////////////////////////////////////
-        /////////////////////////////////////////////////////////////////////////////
-
-        h1 {
-            height: 40px;
-            padding: 0px;
+        input {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+            height: 100%;
             margin: 0;
-            border-bottom: 0;
+            font-weight: bold;
+            border: 0px;
             background-color: transparent;
             color: var(--dark);
+            border: none;
+            box-shadow: none;
+            font-size: 2rem;
 
-            input {
-                overflow: hidden;
-                text-overflow: ellipsis;
-                width: 100%;
-                height: 100%;
-                margin: 0;
-                font-weight: bold;
-                border: 0px;
-                background-color: transparent;
-                color: var(--dark);
 
-                &::placeholder {
-                    color: var(--eb-c-accent);
-                }
+            &::placeholder {
+                color: var(--eb-c-accent);
             }
         }
+    }
 
-        /////////////////////////////////////////////////////////////////////////////
-        /////////////////////////////////////////////////////////////////////////////
 
-        .eb-main-stat-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin: 10px 0 15px;
+    .eb-main-stat-wrapper {
+        display: flex;
+        flex-direction: column;
+        background: var(--eb-c-white);
+        border-radius: 10px 24px 10px 10px;
+        overflow: hidden;
+        box-shadow: var(--eb-box-shadow);
+        padding: 10px;
 
-            .eb-main-stat {
-                border: 1px solid var(--eb-c-lightgrey);
-                border-radius: 7px;
-                padding: 7px;
-                box-sizing: border-box;
+        .eb-main-stat {
+            flex: 0 0 34px;
 
-                .resource-content {
-                    align-items: center;
-                    justify-content: flex-start;
-
-                    input {
-                        flex-basis: 30px;
-                        flex-grow: 0;
-                        flex-shrink: 1;
-
-                        &[type="text"] {
-                            flex-basis: 80px;
-                        }
-                    }
-
-                    span {
-                        flex-basis: 17px;
-                        flex-grow: 0;
-                        flex-shrink: 2;
-                    }
-                }
+            .flexcol {
+                display: flex;
+                flex-direction: row;
+                gap: var(--eb-space-s);
+                padding: 0 0 10px 0;
+                border-bottom: 1px solid var(--eb-c-lightgrey);
 
                 label {
-                    font-family: var(--font-body);
-                    letter-spacing: 0.02em;
-                    font-weight: 600;
-                    display: block;
-                    margin-bottom: 4px;
-                    font-size: 12px;
-                    align-self: flex-start;
+                    align-content: center;
+                    line-height: 100%;
+                    text-align: left;
+                    justify-content: flex-start;
+                    flex: 0 0 130px;
+                }
 
+                .resource-content {
+                    flex: 0 1 50px;
                 }
             }
 
-            /////////////////////////////////////////////////////////////////////////////
-            /////////////////////////////////////////////////////////////////////////////
-
-            .eb-description {
-                textarea {
-                    background-color: var(--eb-c-white);
-                    border: 1px solid var(--eb-c-lightgrey);
-                    border-radius: 7px;
-                    padding: 7px;
-                    box-sizing: border-box;
-                    min-height: 100px;
-                }
+            &:last-child .flexcol {
+                padding-bottom: 0;
+                border-bottom: none;
             }
-
-            /////////////////////////////////////////////////////////////////////////////
-            /////////////////////////////////////////////////////////////////////////////
-
-            @container sheetContainer (width >=520px) {
-
-                .eb-main-abilities {
-                    display: flex;
-                    flex: initial;
-                    flex-direction: row;
-                    gap: 10px;
-                }
-
-                .eb-main-stat-wrapper {
-                    display: flex;
-                    flex-direction: row;
-                    gap: 10px;
-
-                    .eb-main-stat {
-                        flex-grow: 1;
-
-                        &.eb-quantity {
-                            flex-basis: 60px;
-                        }
-
-                        &.eb-number-of-uses {
-                            flex-basis: 140px;
-                        }
-
-                        &.eb-bulky {
-                            flex-basis: 60px;
-                        }
-
-                        &.eb-armor {
-                            flex-basis: 60px;
-                        }
-
-                        &.eb-damage-formula {
-                            flex-basis: 80px;
-                        }
-                    }
-
-                }
-
-            }
-
-
         }
-
-        /////////////////////////////////////////////////////////////////////////////
-        /////////////////////////////////////////////////////////////////////////////
     }
+
+    /////////////////////////
+
 }

@@ -84,7 +84,7 @@
     .eb-card {
         background-color: var(--eb-c-white);
         border-radius: 10px;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: var(--eb-box-shadow);
     }
 
     /////////////////////////////

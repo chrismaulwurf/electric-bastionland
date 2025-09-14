@@ -10,8 +10,7 @@ export class ElectricBastionlandItemSheet extends api.HandlebarsApplicationMixin
     /** @override */
     static get defaultOptions() {
         return foundry.utils.mergeObject(super.defaultOptions, {
-            id: "electricbastionland-item",
-            classes: ["electricbastionland", "sheet", "item"],
+            ...super.defaultOptions,
             actions: {
 
             },
@@ -21,9 +20,12 @@ export class ElectricBastionlandItemSheet extends api.HandlebarsApplicationMixin
             },
             window: {
                 title: "Electric Bastionland Item",
-                icon: "fas fa-item"
+                icon: "fas fa-item",
+                classes: ["electricbastionland", "sheet", "item"],
+                resizable: true
             },
-            position: { width: 540, height: 335 }
+            position: { width: 240, height: 335 },
+            resizable: true
         });
     }
 
@@ -31,10 +33,16 @@ export class ElectricBastionlandItemSheet extends api.HandlebarsApplicationMixin
     static PARTS = {
         form: {
             template: "systems/electricbastionland/templates/sheets/item-sheet.hbs",
-            classes: ["form-body"],
+            classes: ["form-body", "item-body"],
             tag: "form"
         }
     };
+
+    ////////////////////////////////////////////////////////////////////////////////
+
+    get title() {
+        return this.item.name;
+    }
 
     ////////////////////////////////////////////////////////////////////////////////
 
