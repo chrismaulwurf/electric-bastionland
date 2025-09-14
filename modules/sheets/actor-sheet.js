@@ -249,17 +249,17 @@ export class ElectricBastionlandActorSheet extends api.HandlebarsApplicationMixi
             rolledValue: r.total
         };
 
-        data.resultMessage = data.rolledValue <= 1
+        data.resultMessage = data.rolledValue <= 2
             ? game.i18n.localize("EB.Chat.Failure")
             : game.i18n.localize("EB.Chat.SuccessComplications");
-        data.resultMessage = data.rolledValue >= 4
+        data.resultMessage = data.rolledValue >= 5
             ? game.i18n.localize("EB.Chat.SuccessFull")
             : data.resultMessage;
 
-        data.successLevel = data.rolledValue <= 1 ? 0 : 1;
-        data.successLevel = data.rolledValue >= 4 ? 2 : data.successLevel;
+        data.successLevel = data.rolledValue <= 2 ? 0 : 1;
+        data.successLevel = data.rolledValue >= 5 ? 2 : data.successLevel;
 
-        const resultContent = await renderTemplate(this.CHAT_TEMPLATE_LUCK, data);
+        const resultContent = await foundry.applications.handlebars.renderTemplate(this.CHAT_TEMPLATE_LUCK, data);
 
         r.toMessage({
             speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -369,7 +369,7 @@ export class ElectricBastionlandActorSheet extends api.HandlebarsApplicationMixi
                 rolledValue: r.total
             };
 
-            const resultContent = await renderTemplate(this.CHAT_TEMPLATE_DAMAGE, data);
+            const resultContent = await foundry.applications.handlebars.renderTemplate(this.CHAT_TEMPLATE_DAMAGE, data);
 
             r.toMessage({
                 speaker: ChatMessage.getSpeaker({ actor: this.actor }),

@@ -205,14 +205,17 @@
   text-align: center;
 }
 .system-electricbastionland .sheet .eb-player-name {
-  color: var(--eb-c-dark);
+  color: #145866;
   padding: 0;
-  font-size: 10px;
+  font-size: 9px;
   width: 100%;
   text-align: right;
   height: 10px;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
+  position: absolute;
+  top: 8px;
+  right: 35px;
 }
 .system-electricbastionland .sheet .eb-player-name:empty {
   display: none;
@@ -536,6 +539,10 @@
 .system-electricbastionland .sheet .eb-sheet-action-buttons button:hover {
   background: var(--eb-c-surfcace-button-hover);
 }
+.system-electricbastionland .sheet .eb-sheet-action-buttons button:focus {
+  outline: none;
+  box-shadow: none;
+}
 
 .electricbastionland .items-list {
   list-style: none;
@@ -691,6 +698,7 @@
   flex-grow: 0;
   flex-shrink: 0;
   display: none;
+  line-height: 22px;
 }
 .electricbastionland .items-list .item .eb-item-infos > span.eb-bulky-status.active {
   border-color: var(--eb-c-dark);
@@ -813,6 +821,10 @@
 .electricbastionland .items-list .item-controls .roll-damage:hover {
   background: var(--eb-c-surfcace-button-hover);
 }
+.electricbastionland .items-list .item-controls .roll-damage:focus {
+  outline: none;
+  box-shadow: none;
+}
 .electricbastionland .items-list .item-info {
   margin-left: 4px;
   border-style: solid;
@@ -902,7 +914,82 @@
   border-bottom: none;
 }
 
-.system-electricbastionland .sheet {
+.chat-message {
+  background-image: none;
+  background-color: var(--eb-c-white);
+  margin: 12px 10px;
+  border: none;
+  box-shadow: 0 4px 5px -2px rgba(0, 0, 0, 0.6);
+  padding: 10px;
+}
+.chat-message .message-header .message-sender {
+  color: var(--eb-c-dark);
+  font-family: var(--font-body);
+  font-weight: bold;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+
+.ebr-chat-result {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-family: var(--font-body);
+}
+.ebr-chat-result > div {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  font-size: 14px;
+  border-top: 1px solid #e0e0ef;
+  padding: 6px 0 1px;
+  align-items: center;
+}
+.ebr-chat-result > div.ebr-intro {
+  padding-top: 6px;
+  margin-top: 5px;
+}
+.ebr-chat-result > div.ebr-intro i {
+  font-style: normal;
+  font-size: 11px;
+  color: var(--eb-c-accent);
+}
+.ebr-chat-result > div.ebr-result {
+  border-top: none;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 7px;
+  margin-top: 10px;
+}
+.ebr-chat-result > div label {
+  flex-basis: 90px;
+  flex-grow: 0;
+  font-size: 11px;
+}
+.ebr-chat-result[data-is-success=true] > div.ebr-result {
+  background: var(--eb-c-green);
+  color: var(--eb-c-white);
+}
+.ebr-chat-result[data-is-success=false] > div.ebr-result {
+  background: var(--eb-c-red);
+  color: var(--eb-c-white);
+}
+.ebr-chat-result[data-success-level="2"] > div.ebr-result {
+  background: var(--eb-c-green);
+  color: var(--eb-c-white);
+}
+.ebr-chat-result[data-success-level="1"] > div.ebr-result {
+  background: var(--eb-c-orange);
+  color: var(--eb-c-white);
+}
+.ebr-chat-result[data-success-level="0"] > div.ebr-result {
+  background: var(--eb-c-red);
+  color: var(--eb-c-white);
+}
+
+.system-electricbastionland .sheet,
+.system-electricbastionland .chat-message {
   --font-body: "Oxanium", sans-serif;
   --font-h1-size: 2rem;
   --eb-space-xs: 8px;
@@ -915,17 +1002,22 @@
   --eb-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   overflow: auto;
 }
-.system-electricbastionland .sheet.actor {
+.system-electricbastionland .sheet.actor,
+.system-electricbastionland .chat-message.actor {
   --eb-form-minsize: 300px;
   --eb-form-maxsize: 630px;
 }
-.system-electricbastionland .sheet .window-content {
+.system-electricbastionland .sheet .window-content,
+.system-electricbastionland .chat-message .window-content {
   background: var(--eb-c-surface);
   padding: 0;
 }
 .system-electricbastionland .sheet form,
 .system-electricbastionland .sheet #electricbastionland-actor,
-.system-electricbastionland .sheet #electricbastionland-item {
+.system-electricbastionland .sheet #electricbastionland-item,
+.system-electricbastionland .chat-message form,
+.system-electricbastionland .chat-message #electricbastionland-actor,
+.system-electricbastionland .chat-message #electricbastionland-item {
   min-width: var(--eb-form-minsize);
   max-width: var(--eb-form-maxsize);
   margin: auto;
@@ -940,7 +1032,13 @@
 .system-electricbastionland .sheet #electricbastionland-actor input,
 .system-electricbastionland .sheet #electricbastionland-actor textarea,
 .system-electricbastionland .sheet #electricbastionland-item input,
-.system-electricbastionland .sheet #electricbastionland-item textarea {
+.system-electricbastionland .sheet #electricbastionland-item textarea,
+.system-electricbastionland .chat-message form input,
+.system-electricbastionland .chat-message form textarea,
+.system-electricbastionland .chat-message #electricbastionland-actor input,
+.system-electricbastionland .chat-message #electricbastionland-actor textarea,
+.system-electricbastionland .chat-message #electricbastionland-item input,
+.system-electricbastionland .chat-message #electricbastionland-item textarea {
   --input-box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
   --input-height: 24px;
   --checkbox-size: 18px;
