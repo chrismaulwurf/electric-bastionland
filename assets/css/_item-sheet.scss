@@ -6,6 +6,31 @@
         padding-top: 2px;
     }
 
+
+    .eb-notice-wrapper {
+        display: flex;
+        flex-direction: column;
+        background: var(--eb-c-white);
+        border-radius: 10px 24px 10px 10px;
+        overflow: hidden;
+        box-shadow: var(--eb-box-shadow);
+        padding: 10px;
+
+
+
+        h3 {
+            font-family: "Oxanium", sans-serif;
+            letter-spacing: 0.005em;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            align-self: flex-start;
+            color: var(--eb-c-dark);
+        }
+
+    }
+
     /////////////////////
 
     .item-sheet h1 {

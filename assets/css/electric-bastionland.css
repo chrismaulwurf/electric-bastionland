@@ -402,8 +402,8 @@
   display: block;
   border-radius: 0 10px 10px 0;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
   cursor: pointer;
 }
 @container sheetContainer (width <480px) {
@@ -863,6 +863,25 @@
 }
 .system-electricbastionland .sheet.item .eb-main-stat-wrapper input {
   padding-top: 2px;
+}
+.system-electricbastionland .sheet.item .eb-notice-wrapper {
+  display: flex;
+  flex-direction: column;
+  background: var(--eb-c-white);
+  border-radius: 10px 24px 10px 10px;
+  overflow: hidden;
+  box-shadow: var(--eb-box-shadow);
+  padding: 10px;
+}
+.system-electricbastionland .sheet.item .eb-notice-wrapper h3 {
+  font-family: "Oxanium", sans-serif;
+  letter-spacing: 0.005em;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  align-self: flex-start;
+  color: var(--eb-c-dark);
 }
 .system-electricbastionland .sheet.item .item-sheet h1 {
   height: 40px;
