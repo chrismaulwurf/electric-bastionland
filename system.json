@@ -38,7 +38,6 @@
     "units": "m"
   },
   "primaryTokenAttribute": "hp",
-  "url": "https://github.com/chrismaulwurf/electric-bastionland",
-  "manifest": "https://github.com/chrismaulwurf/electric-bastionland/master/system.json",
-  "download": "https://github.com/chrismaulwurf/electric-bastionland/download/1.0.0.zip"
+  "url": "https://raw.githubusercontent.com/chrismaulwurf/electric-bastionland/refs/heads/main/system.json",
+  "manifest": "https://raw.githubusercontent.com/chrismaulwurf/electric-bastionland/refs/heads/main/system.json"
 }
