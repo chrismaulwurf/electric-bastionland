@@ -1,4 +1,5 @@
 {
+  "id": "electricbastionland",
   "name": "electricbastionland",
   "title": "Electric Bastionland",
   "description": "FoundryVTT System - Electric Bastionland",
@@ -9,7 +10,11 @@
     }
   ],
   "license": "LICENSE",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
   "minimumCoreVersion": "13",
   "compatibleCoreVersion": "13",
   "esmodules": [
