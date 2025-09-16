@@ -1,5 +1,5 @@
 {
-  "id": "electricbastionland",
+  "name": "electricbastionland",
   "title": "Electric Bastionland",
   "description": "FoundryVTT System - Electric Bastionland",
   "authors": [
@@ -10,10 +10,8 @@
   ],
   "license": "LICENSE",
   "version": "0.0.1",
-  "compatibility": {
-    "minimum": "13",
-    "verified": "13"
-  },
+  "minimumCoreVersion": "13",
+  "compatibleCoreVersion": "13",
   "esmodules": [
     "electric-bastionland.js"
   ],
@@ -38,6 +36,6 @@
     "units": "m"
   },
   "primaryTokenAttribute": "hp",
-  "url": "https://raw.githubusercontent.com/chrismaulwurf/electric-bastionland/refs/heads/main/system.json",
-  "manifest": "https://raw.githubusercontent.com/chrismaulwurf/electric-bastionland/refs/heads/main/system.json"
+  "url": "https://raw.githubusercontent.com/chrismaulwurf/electric-bastionland/main/system.json",
+  "manifest": "https://raw.githubusercontent.com/chrismaulwurf/electric-bastionland/main/system.json"
 }
