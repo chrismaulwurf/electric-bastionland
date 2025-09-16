@@ -1,6 +1,5 @@
 {
   "id": "electricbastionland",
-  "name": "electricbastionland",
   "title": "Electric Bastionland",
   "description": "FoundryVTT System - Electric Bastionland",
   "authors": [
@@ -15,8 +14,6 @@
     "minimum": "13",
     "verified": "13"
   },
-  "minimumCoreVersion": "13",
-  "compatibleCoreVersion": "13",
   "esmodules": [
     "electric-bastionland.js"
   ],
