@@ -215,11 +215,11 @@
                 gap: var(--eb-space-xs);
                 padding: 0;
                 flex-direction: row;
-                flex-wrap: wrap;
 
 
                 @container sheetContainer (width <610px) {
                     max-width: 200px;
+                    flex-wrap: wrap;
                 }
 
 

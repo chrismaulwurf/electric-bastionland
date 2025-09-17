@@ -336,11 +336,11 @@
   gap: var(--eb-space-xs);
   padding: 0;
   flex-direction: row;
-  flex-wrap: wrap;
 }
 @container sheetContainer (width <610px) {
   .system-electricbastionland .sheet.actor .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper {
     max-width: 200px;
+    flex-wrap: wrap;
   }
 }
 .system-electricbastionland .sheet.actor .sheet-header .eb-infos-wrapper .eb-main-stat-wrapper .eb-main-stat {
