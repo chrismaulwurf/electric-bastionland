@@ -8,7 +8,7 @@
       "flags": {}
     }
   ],
-  "license": "All Rights Reserved",
+  "license": "MIT License",
   "version": "1.0.0",
   "compatibility": {
     "minimum": "13",
