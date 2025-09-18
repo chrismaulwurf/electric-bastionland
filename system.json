@@ -1,14 +1,14 @@
 {
   "id": "electricbastionland",
   "title": "Electric Bastionland",
-  "description": "FoundryVTT System - Electric Bastionland",
+  "description": "FoundryVTT System - Electric Bastionland – Privates TestSystem",
   "authors": [
     {
       "name": "chrismaulwurf",
       "flags": {}
     }
   ],
-  "license": "LICENSE",
+  "license": "All Rights Reserved",
   "version": "1.0.0",
   "compatibility": {
     "minimum": "13",
@@ -39,5 +39,6 @@
   },
   "primaryTokenAttribute": "hp",
   "url": "https://raw.githubusercontent.com/chrismaulwurf/electric-bastionland/main/system.json",
-  "manifest": "https://raw.githubusercontent.com/chrismaulwurf/electric-bastionland/main/system.json"
+  "manifest": "https://raw.githubusercontent.com/chrismaulwurf/electric-bastionland/main/system.json",
+  "download": "https://raw.githubusercontent.com/chrismaulwurf/electric-bastionland/main/electricbastionland.zip"
 }
